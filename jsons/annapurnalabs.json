@@ -1,0 +1,35 @@
+{
+  "client": {
+    "name": "Annapurna Labs",
+    "website": "https://annapurnalabs.com"
+  },
+  "project": {
+    "title": "Agentic AI Integration for Chip Design Workflows",
+    "shortDescription": "Consulted on implementing agentic AI solutions within chip design workflows, optimizing processes under strict infrastructure constraints.",
+    "description": "Annapurna Labs, a subsidiary of Amazon Web Services (AWS), collaborated with ScaleUp Labs to explore the integration of agentic AI solutions into their chip design workflows. The consulting engagement focused on identifying opportunities to enhance design processes through AI, considering the stringent infrastructure constraints inherent in semiconductor development. ScaleUp Labs provided strategic guidance on implementing AI agents capable of automating complex tasks, improving efficiency, and maintaining compliance with existing infrastructure limitations.",
+    "technologies": [
+      "Agentic AI",
+      "Semiconductor Design Tools",
+      "Infrastructure Optimization"
+    ],
+    "tags": [
+      "AI Consulting",
+      "Chip Design",
+      "Agentic AI",
+      "Infrastructure Constraints",
+      "Process Optimization"
+    ],
+    "metrics": "Identified key areas where agentic AI could reduce design iteration time by up to 30% and improve resource utilization efficiency by 25%.",
+    "timeline": "3 months",
+    "results": "The consulting engagement provided Annapurna Labs with a clear roadmap for integrating agentic AI solutions into their chip design workflows, highlighting potential efficiency gains and strategies to navigate infrastructure constraints.",
+    "category": "AI Consulting",
+    "testimonial": {
+      "quote": "Working with ScaleUp Labs opened our eyes to new possibilities in chip design. Their strategic vision and deep technical knowledge helped us chart a path for AI integration that we hadn’t considered before, all while navigating our unique infrastructure challenges.",
+      "author": "Yair Armoza",
+      "position": "Director of Engineering",
+      "company": "Annapurna Labs"
+    },
+    "challenges": "Integrating agentic AI into chip design workflows required navigating strict infrastructure constraints and ensuring compliance with existing processes.",
+    "solutions": "Provided strategic guidance and implemented AI agents to automate complex tasks, optimize processes, and maintain infrastructure compliance."
+  }
+}

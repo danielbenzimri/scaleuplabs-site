@@ -1,0 +1,37 @@
+{
+  "client": {
+    "name": "InteliChain",
+    "website": "https://inteli-chain.com"
+  },
+  "project": {
+    "title": "Scalable Time Series Forecasting for Product-Level Sales",
+    "shortDescription": "Developed a high-scale, parallelized forecasting system to predict product-level sales using Azure's many-models architecture.",
+    "description": "InteliChain partnered with ScaleUp Labs to develop a scalable time series forecasting system aimed at predicting future sales for each product based on historical data. Recognizing the unique stability and profitability characteristics of each product, the solution employed a many-models approach, training and evaluating multiple forecasting models per product to select the best fit. Leveraging Azure's parallel computing capabilities, the system efficiently handled large-scale data processing, enabling accurate and timely sales predictions across the entire product portfolio.",
+    "technologies": [
+      "Azure Machine Learning",
+      "Python",
+      "Many-Models Architecture",
+      "Time Series Forecasting",
+      "Parallel Computing"
+    ],
+    "tags": [
+      "Time Series Forecasting",
+      "Sales Prediction",
+      "Azure ML",
+      "Parallel Processing",
+      "Many-Models Approach"
+    ],
+    "metrics": "Achieved a 92% average accuracy in sales forecasts, reduced model training time by 65%, and enabled dynamic inventory adjustments leading to a 20% decrease in stockouts.",
+    "timeline": "5 months",
+    "results": "The implementation led to significant improvements in sales forecasting accuracy and operational efficiency, allowing for proactive inventory management and enhanced decision-making processes.",
+    "category": "AI & Data Analysis",
+    "testimonial": {
+      "quote": "ScaleUp Labs built a forecasting engine that changed the way we manage our inventory and sales. Their scalable approach and attention to our business needs resulted in more accurate predictions and a smoother operation overall.",
+      "author": "Roei Aviram",
+      "position": "Chief Executive Officer",
+      "company": "InteliChain"
+    },
+    "challenges": "Building a scalable forecasting system required handling large volumes of product-level data, ensuring model accuracy for diverse products, and optimizing parallel processing for efficiency.",
+    "solutions": "Implemented a many-models architecture on Azure, leveraging parallel computing to train and select the best forecasting model per product, resulting in high accuracy and efficient large-scale processing."
+  }
+}

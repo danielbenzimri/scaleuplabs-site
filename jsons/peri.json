@@ -1,0 +1,38 @@
+{
+  "client": {
+    "name": "Peri Insurance",
+    "website": "https://www.peri-insurance.co.il"
+  },
+  "project": {
+    "title": "RAG-Powered Customer Support Portal",
+    "shortDescription": "Developed a chat-based customer portal utilizing Retrieval-Augmented Generation (RAG) to provide accurate, real-time responses based on customer data.",
+    "description": "Peri Insurance collaborated with ScaleUp Labs to develop an advanced customer support portal powered by Retrieval-Augmented Generation (RAG). The solution integrates a chat-based interface that leverages customer data to provide accurate and contextually relevant responses. By combining information retrieval with generative AI, the system accesses up-to-date customer information and generates personalized answers, enhancing the customer experience and operational efficiency. The backend infrastructure was built using Python and deployed on Azure, ensuring scalability and reliability. An orchestration system was implemented to manage complex workflows, and multiple Large Language Models (LLMs), including Anthropic Claude and ChatGPT, were integrated with a fallback mechanism to ensure consistent performance.",
+    "technologies": [
+      "Python",
+      "Azure",
+      "Anthropic Claude",
+      "ChatGPT",
+      "Retrieval-Augmented Generation",
+      "Customer Data Integration"
+    ],
+    "tags": [
+      "AI Automation",
+      "Customer Support",
+      "RAG",
+      "Chatbot Development",
+      "Personalized Responses"
+    ],
+    "metrics": "Reduced customer query resolution time by 60%, increased customer satisfaction scores by 30%, and improved response accuracy by 25%.",
+    "timeline": "4 months",
+    "results": "The implementation led to a significant acceleration of customer support processes, improved customer satisfaction through personalized responses, and ensured compliance with insurance regulations, thereby enhancing operational efficiency and reducing manual workload.",
+    "category": "AI & Automation",
+    "testimonial": {
+      "quote": "ScaleUp Labs delivered an exceptional AI-driven solution that transformed our customer support portal. Their expertise enabled us to automate complex tasks, ensuring accuracy and compliance, and significantly enhancing our customer experience.",
+      "author": "Ron Peri",
+      "position": "Co-Chief Executive Officer",
+      "company": "Peri Insurance"
+    },
+    "challenges": "Integrating real-time customer data with generative AI required robust data retrieval, orchestration of multiple LLMs, and ensuring compliance with insurance regulations.",
+    "solutions": "Developed a RAG-powered chat portal with backend orchestration, integrated multiple LLMs with fallback, and ensured scalable, compliant deployment on Azure for accurate, personalized customer support."
+  }
+}

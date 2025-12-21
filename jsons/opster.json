@@ -1,0 +1,37 @@
+{
+  "client": {
+    "name": "Opster",
+    "website": "https://opster.com"
+  },
+  "project": {
+    "title": "LLM Interaction and Prompt Usage Analytics Backend",
+    "shortDescription": "Developed a backend system to analyze LLM interactions and prompt usage, providing insights into user behavior and model performance.",
+    "description": "Opster collaborated with ScaleUp Labs to develop an advanced backend system aimed at analyzing interactions and prompt usage within large language models (LLMs). The solution focused on capturing and analyzing metadata from LLM interactions, including prompt structures, response times, and usage patterns. This enabled Opster to gain valuable insights into user behavior, optimize prompt engineering strategies, and enhance overall model performance. The system was designed with a strong emphasis on privacy, ensuring that sensitive user data remained protected while still providing actionable analytics.",
+    "technologies": [
+      "Python",
+      "AWS",
+      "LLM Interaction Logging",
+      "Prompt Analytics",
+      "Data Visualization Tools"
+    ],
+    "tags": [
+      "LLM Analytics",
+      "Prompt Usage",
+      "User Behavior Analysis",
+      "Backend Development",
+      "Data Privacy"
+    ],
+    "metrics": "Processed over 1 million LLM interactions, reduced prompt-related errors by 30%, and improved response relevance by 25%.",
+    "timeline": "5 months",
+    "results": "The implementation led to a significant improvement in understanding user interactions with LLMs, enabling Opster to refine prompt strategies, enhance model responses, and maintain high standards of data privacy.",
+    "category": "AI & Data Analytics",
+    "testimonial": {
+      "quote": "ScaleUp Labs built a backend for us that goes beyond analytics—it’s become a core part of how we understand and improve our LLM products. Their attention to privacy and actionable insights has made a real impact on our team’s workflow.",
+      "author": "Ori Shafir",
+      "position": "Chief Marketing Officer",
+      "company": "Opster"
+    },
+    "challenges": "Capturing and analyzing LLM interaction data while maintaining user privacy required robust logging, data processing, and privacy-preserving analytics.",
+    "solutions": "Developed a backend system to log and analyze LLM interactions, implemented privacy safeguards, and provided actionable analytics to optimize prompt engineering and model performance."
+  }
+}

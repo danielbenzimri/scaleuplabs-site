@@ -1,0 +1,25 @@
+{
+  "client": {
+    "name": "ModelCode",
+    "website": ""
+  },
+  "project": {
+    "title": "",
+    "shortDescription": "",
+    "description": "",
+    "technologies": [],
+    "tags": [],
+    "metrics": "",
+    "timeline": "",
+    "results": "",
+    "category": "",
+    "testimonial": {
+      "quote": "",
+      "author": "",
+      "position": "",
+      "company": "ModelCode"
+    },
+    "challenges": "Describe the main challenges faced in this project.",
+    "solutions": "Describe the solutions and implementation details for this project."
+  }
+}

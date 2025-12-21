@@ -1,0 +1,38 @@
+{
+  "client": {
+    "name": "BionData",
+    "website": "https://biondata.com"
+  },
+  "project": {
+    "title": "Automated SDTM Conversion and Validation Platform",
+    "shortDescription": "Developed an AI-driven solution to automate the conversion and validation of clinical trial data into SDTM format, enhancing efficiency and compliance.",
+    "description": "BionData, a subsidiary of Bioforum, collaborated with ScaleUp Labs to develop an advanced platform that automates the conversion of clinical trial data into the Study Data Tabulation Model (SDTM) format. The solution integrates AI-driven tools to streamline data mapping, validation, and submission processes, ensuring compliance with regulatory standards. By automating these complex tasks, the platform significantly reduces manual effort, minimizes errors, and accelerates the timeline for regulatory submissions.",
+    "technologies": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "AWS Lambda",
+      "Docker",
+      "CDISC Standards"
+    ],
+    "tags": [
+      "Clinical Data Management",
+      "SDTM Conversion",
+      "Regulatory Compliance",
+      "Data Automation",
+      "AI Integration"
+    ],
+    "metrics": "Reduced SDTM conversion time by 70%, decreased validation errors by 60%, and accelerated regulatory submission readiness by 50%.",
+    "timeline": "6 months",
+    "results": "The implementation of the automated SDTM conversion and validation platform led to a significant reduction in manual processing time and errors, ensuring faster and more reliable regulatory submissions.",
+    "category": "Data Engineering",
+    "testimonial": {
+      "quote": "The team at ScaleUp Labs brought a fresh perspective to our clinical data challenges. Their tailored AI platform not only streamlined our SDTM conversion but also gave us the confidence to meet regulatory demands faster and with fewer errors than ever before.",
+      "author": "Yarden Cohen",
+      "position": "Chief Executive Officer",
+      "company": "BionData"
+    },
+    "challenges": "Automating the conversion and validation of clinical trial data to SDTM format required handling complex data mappings, ensuring regulatory compliance, and minimizing manual intervention.",
+    "solutions": "Developed an AI-driven platform that automates data mapping, validation, and submission processes, significantly reducing manual effort and errors while ensuring compliance with CDISC standards."
+  }
+}

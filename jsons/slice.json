@@ -1,0 +1,40 @@
+{
+  "client": {
+    "name": "Slice Global",
+    "website": "https://www.sliceglobal.com"
+  },
+  "project": {
+    "title": "AI-Powered Document Processing for Equity Compliance",
+    "shortDescription": "Developed a generative AI solution to automate the extraction and processing of financial documents, enhancing equity compliance workflows.",
+    "description": "Slice Global, an AI-powered equity compliance platform, partnered with ScaleUp Labs to automate the processing of thousands of financial documents. The solution incorporated OCR for scanned documents and advanced PDF processing to extract relevant information, regardless of document structure. Leveraging FastAPI and deploying on Google Cloud Run, the system utilized AWS Rekognition for image analysis and integrated multiple LLMs, including Anthropic Claude and ChatGPT, with a fallback mechanism to ensure reliability. An orchestration system was built to manage complex workflows, linking extracted data to the correct individuals by matching with other financial sources. This comprehensive backend and AI solution transformed a manual, weeks-long onboarding process into a streamlined operation completed within a day.",
+    "technologies": [
+      "FastAPI",
+      "Google Cloud Run",
+      "AWS Rekognition",
+      "Anthropic Claude",
+      "ChatGPT",
+      "OCR",
+      "PDF Processing"
+    ],
+    "tags": [
+      "Generative AI",
+      "Document Processing",
+      "OCR",
+      "Equity Compliance",
+      "Workflow Automation",
+      "LLM Integration"
+    ],
+    "metrics": "Reduced onboarding document processing time from weeks to a single day, eliminated the need for a dedicated manual processing team, and enhanced data accuracy and compliance.",
+    "timeline": "3 months",
+    "results": "The implementation led to a significant acceleration of the onboarding process, improved data accuracy, and ensured compliance with equity regulations, thereby enhancing operational efficiency and reducing manual workload.",
+    "category": "AI & Automation",
+    "testimonial": {
+      "quote": "With ScaleUp Labs, we witnessed a complete overhaul of our document processing. Their innovative approach and technical mastery allowed us to move from tedious manual work to a seamless, automated system. The speed and precision we gained have set a new standard for our operations.",
+      "author": "Samuel Amar",
+      "position": "Chief Technology Officer",
+      "company": "Slice Global"
+    },
+    "challenges": "Automating extraction from diverse and unstructured financial documents required robust OCR, advanced PDF processing, and reliable data matching to ensure compliance and accuracy.",
+    "solutions": "Developed a generative AI solution with OCR, PDF processing, and LLM integration, orchestrated workflows, and deployed on scalable cloud infrastructure to automate and streamline equity compliance document processing."
+  }
+}

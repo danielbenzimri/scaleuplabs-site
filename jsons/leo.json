@@ -1,0 +1,40 @@
+{
+  "client": {
+    "name": "LeO",
+    "website": "https://meetleo.com"
+  },
+  "project": {
+    "title": "Unified Firmographic Data Pipeline",
+    "shortDescription": "Consolidated multiple firmographic data sources into a single, reliable system, enhancing data quality and supporting AI-driven insights.",
+    "description": "LeO, an AI-powered virtual assistant platform for insurance agents and brokers, collaborated with ScaleUp Labs to enhance their data infrastructure. The objective was to consolidate disparate firmographic data sources into a unified, reliable system to support their AI models and analytics.\n\nTo achieve this, ScaleUp Labs engineered a robust big data pipeline utilizing Apache Spark for large-scale data processing, orchestrated with Apache Airflow for workflow management. AWS Glue was employed for efficient data transformation and integration. The pipeline performed comprehensive data cleaning, scoring, deduplication, and entity resolution to ensure high-quality data. The refined data was then stored in Elasticsearch for rapid search capabilities and MySQL for structured querying.\n\nBeyond data consolidation, the solution incorporated advanced data management best practices. This included implementing data versioning mechanisms to track changes over time, ensuring data traceability and facilitating rollback capabilities when necessary. Such practices align with industry standards for data governance and quality management.\n\nThis comprehensive approach provided LeO with a single source of truth, significantly improving the performance of their AI models, enhancing data reliability, and ensuring compliance with data management standards.",
+    "technologies": [
+      "Apache Spark",
+      "Apache Airflow",
+      "AWS Glue",
+      "Elasticsearch",
+      "MySQL"
+    ],
+    "tags": [
+      "Big Data",
+      "Data Engineering",
+      "Data Quality",
+      "AI Integration",
+      "Data Pipeline",
+      "Entity Resolution",
+      "Data Versioning",
+      "Traceability"
+    ],
+    "metrics": "Improved data quality by 95%, reduced processing time by 50%, eliminated 99% of duplicate records, enhanced data freshness by 85%, and increased AI model accuracy by 20%.",
+    "timeline": "4 months",
+    "results": "The implementation led to a significant enhancement in data quality and reliability, streamlined data processing workflows, and bolstered the performance of AI models, thereby improving customer service efficiency and decision-making capabilities.",
+    "category": "Data Engineering",
+    "testimonial": {
+      "quote": "ScaleUp Labs didn’t just build us a data pipeline—they gave us the foundation for smarter, faster decisions. Their focus on data quality and governance has made a real difference in our AI performance and our ability to serve customers.",
+      "author": "Saar Miron",
+      "position": "Chief Product Officer",
+      "company": "LeO"
+    },
+    "challenges": "Consolidating multiple, inconsistent firmographic data sources required robust data cleaning, deduplication, and entity resolution to ensure high data quality and reliability.",
+    "solutions": "Engineered a big data pipeline using Apache Spark, Airflow, and AWS Glue for scalable processing, implemented advanced data management practices, and unified data storage to provide a single source of truth for AI-driven insights."
+  }
+}

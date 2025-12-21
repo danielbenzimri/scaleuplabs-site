@@ -1,0 +1,37 @@
+{
+  "client": {
+    "name": "EezyImport",
+    "website": "https://www.eezyimport.com"
+  },
+  "project": {
+    "title": "Automated Customs Classification System",
+    "shortDescription": "Developed a multi-level classification model to map product descriptions to 10-digit customs codes, enhancing accuracy and efficiency in customs declarations.",
+    "description": "EezyImport partnered with ScaleUp Labs to develop an advanced AI-driven system aimed at automating the classification of products for customs declarations. The solution involved creating a multi-level classification model capable of mapping diverse product descriptions to precise 10-digit customs codes, adhering to the hierarchical structure required by customs authorities. Leveraging Azure's AI services, the model was trained to handle complex classification tasks, ensuring high accuracy and compliance. This automation replaced manual processing, significantly reducing the time and effort required for customs classification.",
+    "technologies": [
+      "Azure AI Services",
+      "Python",
+      "Machine Learning",
+      "Custom Classification Models"
+    ],
+    "tags": [
+      "AI Automation",
+      "Customs Classification",
+      "Product Mapping",
+      "Azure AI",
+      "Machine Learning",
+      "Workflow Optimization"
+    ],
+    "metrics": "Achieved 95% accuracy in product classification, reduced manual classification time by 80%, and improved compliance with customs regulations.",
+    "timeline": "4 months",
+    "results": "The implementation led to a significant acceleration of the customs classification process, improved accuracy, and ensured compliance with international trade regulations, thereby enhancing operational efficiency and reducing manual workload.",
+    "category": "AI & Automation",
+    "testimonial": {
+      "quote": "The solution from ScaleUp Labs completely changed how we handle customs classification. Their team built a system that not only improved our accuracy but also freed our staff from repetitive work, letting us focus on growing our business.",
+      "author": "Uri Appelbaum",
+      "position": "Chief Executive Officer",
+      "company": "EezyImport"
+    },
+    "challenges": "Mapping diverse and ambiguous product descriptions to precise 10-digit customs codes required handling complex classification logic and ensuring compliance with customs regulations.",
+    "solutions": "Developed a multi-level AI classification model using Azure AI services, automating the mapping process and significantly improving accuracy and efficiency in customs declarations."
+  }
+}

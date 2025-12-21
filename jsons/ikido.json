@@ -1,0 +1,39 @@
+{
+  "client": {
+    "name": "Ikido",
+    "website": "https://ikido.tech"
+  },
+  "project": {
+    "title": "LLM-Powered Datasheet Classification and Extraction System",
+    "shortDescription": "Developed a system to classify and extract information from electronic component datasheets using a fine-tuned LLaMA-based LLM, enhancing BoM optimization.",
+    "description": "Ikido, a company specializing in bill of materials (BoM) optimization, collaborated with ScaleUp Labs to develop an advanced system aimed at classifying and extracting information from electronic component datasheets. The solution involved training a dedicated LLaMA-based large language model (LLM) to handle the complexities of datasheet formats, ensuring cost-effectiveness and data privacy. By implementing this system on AWS, Ikido was able to automate the ingestion and structuring of vast amounts of component data, which was crucial for building their comprehensive database. This automation replaced manual processes, significantly reducing time-to-market and costs.",
+    "technologies": [
+      "Python",
+      "AWS",
+      "LLaMA-based LLM",
+      "Machine Learning",
+      "Data Extraction",
+      "BoM Optimization"
+    ],
+    "tags": [
+      "AI Automation",
+      "Datasheet Classification",
+      "Information Extraction",
+      "LLM",
+      "BoM Optimization",
+      "Machine Learning"
+    ],
+    "metrics": "Automated processing of over 10,000 datasheets, reduced manual data entry time by 85%, and improved data accuracy by 40%.",
+    "timeline": "6 months",
+    "results": "The implementation led to a significant acceleration of the data processing workflow, improved data accuracy, and enhanced the overall efficiency of the BoM optimization process, thereby reducing time-to-market and operational costs.",
+    "category": "AI & Automation",
+    "testimonial": {
+      "quote": "ScaleUp Labs took on our datasheet challenge with creativity and technical depth. Their custom LLM solution not only automated our most time-consuming tasks but also gave us a competitive edge in BoM optimization. The results speak for themselves.",
+      "author": "Roy Dar",
+      "position": "Chief Technology Officer",
+      "company": "Ikido"
+    },
+    "challenges": "Classifying and extracting information from diverse and unstructured electronic component datasheets required handling complex formats, ensuring data privacy, and maintaining cost-effectiveness.",
+    "solutions": "Developed a fine-tuned LLaMA-based LLM deployed on AWS to automate datasheet ingestion and structuring, significantly reducing manual effort and improving data accuracy for BoM optimization."
+  }
+}
