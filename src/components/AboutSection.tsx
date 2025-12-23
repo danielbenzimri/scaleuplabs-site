@@ -26,7 +26,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -34,13 +34,13 @@ const AboutSection = () => {
               Why Scaleup Labs?
             </h2>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              We're not just another consulting firm. With years of experience in both startups 
-              and enterprise environments, we understand what it takes to build AI departments 
+              We're not just another consulting firm. With years of experience in both startups
+              and enterprise environments, we understand what it takes to build AI departments
               that actually work and scale.
             </p>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Our team has led data science initiatives at companies like ZoomInfo, and we bring 
-              that enterprise-level expertise to help startups and tech companies integrate AI 
+              Our team has led data science initiatives at companies like ZoomInfo, and we bring
+              that enterprise-level expertise to help startups and tech companies integrate AI
               responsibly and professionally from day one.
             </p>
             <div className="flex items-center space-x-4 text-sm text-gray-500">
@@ -54,10 +54,10 @@ const AboutSection = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="space-y-6">
             {features.map((feature, index) => (
-              <div key={index} className="flex items-start space-x-4 p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+              <div key={index} className="flex items-start space-x-4 p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors">
                 <div className="flex-shrink-0">
                   {feature.icon}
                 </div>

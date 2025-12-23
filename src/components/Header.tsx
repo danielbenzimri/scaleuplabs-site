@@ -10,20 +10,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-                  <div className="w-3 h-3 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full"></div>
-                </div>
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full"></div>
-            </div>
+            <img src="/logo.png" alt="Scaleup Labs" className="w-10 h-10 object-contain" />
             <div>
-              <span className="text-xl font-bold text-gray-900">Scaleup Labs</span>
-              <div className="text-xs text-gray-500 -mt-1">AI • Data • Solutions</div>
+              <span className="text-xl font-bold text-gray-900">Scaleup <span className="text-blue-600">Labs</span></span>
+              <p className="text-xs text-gray-500 -mt-1 font-medium tracking-wider">Professional AI & Data consultancy</p>
             </div>
           </div>
-          
+
           <nav className="hidden md:flex space-x-8">
             <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Home</a>
             <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Services</a>

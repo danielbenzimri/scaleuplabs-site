@@ -13,7 +13,7 @@ const ContactForm = () => {
   // Entry mappings for the Google Form fields
   const FORM_ENTRIES = {
     firstName: 'entry.1235181365',
-    lastName: 'entry.231172584', 
+    lastName: 'entry.231172584',
     email: 'entry.1252231773',
     company: 'entry.1023043322',
     services: 'entry.1098171232',
@@ -66,7 +66,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     const formDataElement = new FormData(e.currentTarget);
-    
+
     const formData = {
       firstName: formDataElement.get('firstName') as string,
       lastName: formDataElement.get('lastName') as string,
@@ -80,23 +80,23 @@ const ContactForm = () => {
 
     try {
       submitDirectly(formData);
-      
+
       // Reset form after short delay
       setTimeout(() => {
         (e.target as HTMLFormElement).reset();
         setSelectedService("");
         setIsSubmitting(false);
       }, 1000);
-      
+
     } catch (error) {
       console.error('Error submitting form:', error);
-      
+
       toast({
         title: "Submission Error",
         description: "There was an issue submitting the form. Please try again.",
         variant: "destructive"
       });
-      
+
       setIsSubmitting(false);
     }
   };
@@ -106,69 +106,69 @@ const ContactForm = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="firstName" className="block text-sm font-medium mb-2">First Name <span className="text-red-500">*</span></label>
+            <label htmlFor="firstName" className="block text-sm font-medium mb-2 text-gray-900">First Name <span className="text-red-500">*</span></label>
             <input
               type="text"
               id="firstName"
               name="firstName"
               required
-              className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
               placeholder="John"
             />
           </div>
           <div>
-            <label htmlFor="lastName" className="block text-sm font-medium mb-2">Last Name <span className="text-red-500">*</span></label>
+            <label htmlFor="lastName" className="block text-sm font-medium mb-2 text-gray-900">Last Name <span className="text-red-500">*</span></label>
             <input
               type="text"
               id="lastName"
               name="lastName"
               required
-              className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
               placeholder="Doe"
             />
           </div>
         </div>
-        
+
         <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-2">Email <span className="text-red-500">*</span></label>
+          <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-900">Email <span className="text-red-500">*</span></label>
           <input
             type="email"
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
             placeholder="john@company.com"
           />
         </div>
-        
+
         <div>
-          <label htmlFor="company" className="block text-sm font-medium mb-2">Company</label>
+          <label htmlFor="company" className="block text-sm font-medium mb-2 text-gray-900">Company</label>
           <input
             type="text"
             id="company"
             name="company"
-            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
             placeholder="Your startup name"
           />
         </div>
-        
-        <ServiceRadioGroup 
+
+        <ServiceRadioGroup
           selectedService={selectedService}
           onServiceChange={handleServiceChange}
         />
-        
+
         <div>
-          <label htmlFor="message" className="block text-sm font-medium mb-2">Tell us about your project</label>
+          <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-900">Tell us about your project</label>
           <textarea
             id="message"
             name="message"
             rows={4}
-            className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
             placeholder="Describe your AI/data science needs and goals..."
           />
         </div>
-        
-        <button 
+
+        <button
           type="submit"
           disabled={isSubmitting}
           className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
