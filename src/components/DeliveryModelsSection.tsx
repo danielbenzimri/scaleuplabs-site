@@ -37,7 +37,7 @@ const DeliveryModelsSection = () => {
     ];
 
     return (
-        <section id="delivery-models" className="py-12 bg-blue-100">
+        <section id="delivery-models" className="py-12 bg-tech-modern-section">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10">
                     <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 border-indigo-600 inline-block border-b-4 pb-2">

@@ -45,7 +45,7 @@ const ProjectsSection = () => {
   }
 
   return (
-    <section id="projects" className="py-20 bg-blue-100">
+    <section id="projects" className="py-20 bg-tech-modern-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {error && (
           <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">

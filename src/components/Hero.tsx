@@ -10,8 +10,8 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-blue-100">
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-tech-modern-section">
+      {/* Grid overlay removed as it is now part of bg-tech-modern-section */}
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-8">
