@@ -63,47 +63,45 @@ const ProjectsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => {
+          {projects.map((project) => {
             const IconComponent = project.icon;
             return (
-              <div key={project.id} className="group bg-blue-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-blue-100 overflow-hidden">
+              <div key={project.id} className="group bg-white/30 backdrop-blur-md rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-white/50 overflow-hidden">
                 <div className="p-8">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center">
+                      <div className="w-12 h-12 bg-white/60 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-sm">
                         <IconComponent className="w-6 h-6 text-blue-600" />
                       </div>
                       <div>
-                        <span className="text-sm font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
+                        <span className="text-sm font-medium text-blue-700 bg-white/50 px-3 py-1 rounded-full border border-white/30">
                           {project.category}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">
                     {project.title}
                   </h3>
 
-
-
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+                      <span key={tagIndex} className="px-3 py-1 bg-white/40 text-gray-700 text-sm rounded-full border border-white/20">
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <div className="border-t border-gray-100 pt-4">
+                  <div className="border-t border-white/30 pt-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-semibold text-green-600">
+                      <span className="text-sm font-semibold text-green-700 bg-green-50/50 px-2 py-0.5 rounded">
                         {project.metrics}
                       </span>
                       <div className="flex space-x-3">
                         <button
                           onClick={() => handleViewDetails(project.id)}
-                          className="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
+                          className="text-blue-700 hover:text-blue-800 font-medium text-sm transition-colors flex items-center"
                         >
                           View Details
                         </button>
