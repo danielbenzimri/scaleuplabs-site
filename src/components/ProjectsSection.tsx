@@ -65,8 +65,12 @@ const ProjectsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
           {projects.map((project) => {
             const IconComponent = project.icon;
-            // Split metrics by comma to create bullet points
-            const metricsList = project.metrics.split(',').map(m => m.trim()).filter(Boolean);
+            // Split metrics by comma to create bullet points and capitalize first letter
+            const metricsList = project.metrics.split(',').map(m => {
+              const trimmed = m.trim();
+              if (!trimmed) return null;
+              return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
+            }).filter(Boolean) as string[];
 
             return (
               <div
