@@ -162,3 +162,37 @@ html {
 .float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* Make dark logo backgrounds transparent */
+.logo-transparent-bg {
+  filter: brightness(1.2) contrast(1.1);
+  background: transparent !important;
+  mix-blend-mode: multiply;
+}
+
+/* Infinite scrolling logo animation */
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-scroll-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.logo-scroll-track {
+  display: flex;
+  animation: scroll-logos 30s linear infinite;
+  width: fit-content;
+}
+
+.logo-scroll-track:hover {
+  animation-play-state: paused;
+}
