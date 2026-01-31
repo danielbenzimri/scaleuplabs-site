@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
             <img
               src="/logos/companies-banner.png"
               alt="Our trusted partners: Eezyimport, Intelichain, Slice Global Equity, Annapurna Labs (Amazon), Leo, and BionData"
-              className="w-full max-w-6xl h-32 object-cover rounded-lg"
+              className="w-full max-w-6xl h-auto rounded-lg"
             />
           </div>
         </div>

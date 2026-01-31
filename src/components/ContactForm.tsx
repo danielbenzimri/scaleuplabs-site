@@ -2,10 +2,12 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import ServiceRadioGroup from "./ServiceRadioGroup";
+import SourceRadioGroup from "./SourceRadioGroup";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedService, setSelectedService] = useState<string>("");
+  const [selectedSource, setSelectedSource] = useState<string>("");
   const { toast } = useToast();
 
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeROFhZqvh_kqKgU2vZHkEtTCZ26aNhf4u3bvUxiGn6zwMQVQ/formResponse";
@@ -22,6 +24,10 @@ const ContactForm = () => {
 
   const handleServiceChange = (serviceValue: string) => {
     setSelectedService(serviceValue);
+  };
+
+  const handleSourceChange = (sourceValue: string) => {
+    setSelectedSource(sourceValue);
   };
 
   // Direct form submission method
@@ -73,7 +79,7 @@ const ContactForm = () => {
       email: formDataElement.get('email') as string,
       company: (formDataElement.get('company') as string) || '',
       services: selectedService || '',
-      message: (formDataElement.get('message') as string) || ''
+      message: `[Source: ${selectedSource || 'Not specified'}]\n\n${(formDataElement.get('message') as string) || ''}`
     };
 
     console.log('Form submission data:', formData);
@@ -85,6 +91,7 @@ const ContactForm = () => {
       setTimeout(() => {
         (e.target as HTMLFormElement).reset();
         setSelectedService("");
+        setSelectedSource("");
         setIsSubmitting(false);
       }, 1000);
 
@@ -151,6 +158,11 @@ const ContactForm = () => {
             placeholder="Your startup name"
           />
         </div>
+
+        <SourceRadioGroup
+          selectedSource={selectedSource}
+          onSourceChange={handleSourceChange}
+        />
 
         <ServiceRadioGroup
           selectedService={selectedService}
