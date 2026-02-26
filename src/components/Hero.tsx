@@ -20,12 +20,12 @@ const Hero = () => {
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-          Scale Your Startup with
-          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> AI Excellence</span>
+          Build Your AI Product
+          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> the Right Way.</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-          We help startups and tech companies build AI departments the right way. From Data Science to Generative AI - professional, responsible, and scalable solutions.
+          We design and implement scalable data infrastructure, pipelines, and AI systems — from solid foundations to LLM-powered features — without overengineering or wasted budget.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
