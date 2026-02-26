@@ -113,48 +113,48 @@ const ContactForm = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="firstName" className="block text-sm font-medium mb-2 text-gray-900">First Name <span className="text-red-500">*</span></label>
+            <label htmlFor="firstName" className="block text-sm font-medium mb-2 text-white">First Name <span className="text-red-500">*</span></label>
             <input
               type="text"
               id="firstName"
               name="firstName"
               required
-              className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
+              className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-white placeholder:text-slate-500"
               placeholder="John"
             />
           </div>
           <div>
-            <label htmlFor="lastName" className="block text-sm font-medium mb-2 text-gray-900">Last Name <span className="text-red-500">*</span></label>
+            <label htmlFor="lastName" className="block text-sm font-medium mb-2 text-white">Last Name <span className="text-red-500">*</span></label>
             <input
               type="text"
               id="lastName"
               name="lastName"
               required
-              className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
+              className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-white placeholder:text-slate-500"
               placeholder="Doe"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-900">Email <span className="text-red-500">*</span></label>
+          <label htmlFor="email" className="block text-sm font-medium mb-2 text-white">Email <span className="text-red-500">*</span></label>
           <input
             type="email"
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
+            className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-white placeholder:text-slate-500"
             placeholder="john@company.com"
           />
         </div>
 
         <div>
-          <label htmlFor="company" className="block text-sm font-medium mb-2 text-gray-900">Company</label>
+          <label htmlFor="company" className="block text-sm font-medium mb-2 text-white">Company</label>
           <input
             type="text"
             id="company"
             name="company"
-            className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
+            className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-white placeholder:text-slate-500"
             placeholder="Your startup name"
           />
         </div>
@@ -170,12 +170,12 @@ const ContactForm = () => {
         />
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-900">Tell us about your project</label>
+          <label htmlFor="message" className="block text-sm font-medium mb-2 text-white">Tell us about your project</label>
           <textarea
             id="message"
             name="message"
             rows={4}
-            className="w-full px-4 py-3 bg-white border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400"
+            className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent text-white placeholder:text-slate-500"
             placeholder="Describe your AI/data science needs and goals..."
           />
         </div>
@@ -183,7 +183,7 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+          className="w-full bg-teal-500 hover:bg-teal-600 disabled:bg-teal-500/50 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>

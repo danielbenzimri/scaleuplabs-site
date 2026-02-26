@@ -6,51 +6,51 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 173 58% 39%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
+    --ring: 173 58% 39%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 222 47% 11%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 210 40% 98%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 173 58% 39%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary-foreground: 210 40% 98%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 217 33% 17%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 210 40% 98%;
 
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 215 25% 27%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 173 58% 39%;
   }
 
   .dark {
@@ -111,34 +111,21 @@
 }
 
 .bg-tech-modern {
-  background-color: #f8fafc;
-  /* slate-50 */
+  background-color: #0f172a;
   background-image:
-    linear-gradient(to right, #e2e8f0 1px, transparent 1px),
-    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+    linear-gradient(to right, rgba(51, 65, 85, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(51, 65, 85, 0.3) 1px, transparent 1px);
   background-size: 40px 40px;
-  /* subtle radial mask to make it look less rigid */
   mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
   -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }
 
-/* User provided gradient background */
+/* Dark premium background */
 .bg-tech-modern-section {
-  background-color: #f8fafc;
-  background-image: url("/bg-gradient-teal.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-/* Glassmorphism for cards on the gradient */
-.bg-tech-modern-section .bg-blue-50,
-.bg-tech-modern-section .bg-gray-50 {
-  @apply bg-white/80 border-white/50 backdrop-blur-sm shadow-sm;
-}
-
-.bg-tech-modern-section .bg-blue-100 {
-  @apply bg-white/60 backdrop-blur-sm;
+  background-color: #0f172a;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
 }
 
 /* Smooth scroll behavior */
@@ -163,11 +150,10 @@ html {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Make dark logo backgrounds transparent */
+/* Make logo backgrounds transparent on dark backgrounds */
 .logo-transparent-bg {
-  filter: brightness(1.2) contrast(1.1);
+  filter: brightness(1.5) contrast(1.1);
   background: transparent !important;
-  mix-blend-mode: multiply;
 }
 
 /* Infinite scrolling logo animation */
