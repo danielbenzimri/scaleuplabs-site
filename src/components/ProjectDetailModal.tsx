@@ -21,7 +21,7 @@ const ProjectDetailModal = ({ projectId, projects, isOpen, onClose }: ProjectDet
       <Dialog open={isOpen} onOpenChange={onClose}>
         <DialogContent className="max-w-4xl">
           <div className="text-center py-12">
-            <p className="text-slate-400">Project not found</p>
+            <p className="text-slate-600">Project not found</p>
           </div>
         </DialogContent>
       </Dialog>
@@ -35,11 +35,11 @@ const ProjectDetailModal = ({ projectId, projects, isOpen, onClose }: ProjectDet
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <div className="flex items-center space-x-3 mb-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl flex items-center justify-center">
-              {IconComponent && <IconComponent className="w-6 h-6 text-teal-400" />}
+            <div className="w-12 h-12 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center">
+              {IconComponent && <IconComponent className="w-6 h-6 text-teal-500" />}
             </div>
             <div>
-              <DialogTitle className="text-2xl font-bold text-white">
+              <DialogTitle className="text-2xl font-bold text-slate-900">
                 {project.title}
               </DialogTitle>
               <Badge variant="secondary" className="mt-1">
@@ -62,30 +62,30 @@ const ProjectDetailModal = ({ projectId, projects, isOpen, onClose }: ProjectDet
 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div className="bg-emerald-900/20 p-4 rounded-lg">
+          <div className="bg-emerald-50 p-4 rounded-lg">
             <div className="flex items-center space-x-2 mb-2">
-              <Award className="w-5 h-5 text-emerald-400" />
-              <span className="font-semibold text-emerald-300">Results</span>
+              <Award className="w-5 h-5 text-emerald-600" />
+              <span className="font-semibold text-emerald-700">Results</span>
             </div>
-            <p className="text-emerald-400 text-sm">{project.metrics}</p>
+            <p className="text-emerald-600 text-sm">{project.metrics}</p>
           </div>
           
           {project.timeline && (
-            <div className="bg-teal-900/20 p-4 rounded-lg">
+            <div className="bg-teal-50 p-4 rounded-lg">
               <div className="flex items-center space-x-2 mb-2">
-                <Clock className="w-5 h-5 text-teal-400" />
-                <span className="font-semibold text-teal-300">Timeline</span>
+                <Clock className="w-5 h-5 text-teal-600" />
+                <span className="font-semibold text-teal-700">Timeline</span>
               </div>
-              <p className="text-teal-400 text-sm">{project.timeline}</p>
+              <p className="text-teal-600 text-sm">{project.timeline}</p>
             </div>
           )}
           
-          <div className="bg-amber-900/20 p-4 rounded-lg">
+          <div className="bg-amber-50 p-4 rounded-lg">
             <div className="flex items-center space-x-2 mb-2">
-              <Target className="w-5 h-5 text-amber-400" />
-              <span className="font-semibold text-amber-300">Category</span>
+              <Target className="w-5 h-5 text-amber-600" />
+              <span className="font-semibold text-amber-700">Category</span>
             </div>
-            <p className="text-amber-400 text-sm">{project.category}</p>
+            <p className="text-amber-600 text-sm">{project.category}</p>
           </div>
         </div>
 
@@ -102,7 +102,7 @@ const ProjectDetailModal = ({ projectId, projects, isOpen, onClose }: ProjectDet
             <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-semibold mb-3">Project Overview</h3>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   {project.detailedDescription || project.description}
                 </p>
               </div>
@@ -144,7 +144,7 @@ const ProjectDetailModal = ({ projectId, projects, isOpen, onClose }: ProjectDet
                 <Lightbulb className="w-6 h-6 text-amber-400" />
                 <h3 className="text-lg font-semibold">The Challenge</h3>
               </div>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {project.challenges || "This project presented unique challenges that required innovative solutions and deep technical expertise."}
               </p>
             </div>
@@ -156,7 +156,7 @@ const ProjectDetailModal = ({ projectId, projects, isOpen, onClose }: ProjectDet
                 <Target className="w-6 h-6 text-teal-400" />
                 <h3 className="text-lg font-semibold">Our Solution</h3>
               </div>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {project.solutions || "We developed a comprehensive solution that addressed all technical requirements while ensuring scalability and maintainability."}
               </p>
             </div>
@@ -168,13 +168,13 @@ const ProjectDetailModal = ({ projectId, projects, isOpen, onClose }: ProjectDet
                 <Award className="w-6 h-6 text-emerald-400" />
                 <h3 className="text-lg font-semibold">Results & Impact</h3>
               </div>
-              <p className="text-slate-400 leading-relaxed mb-4">
+              <p className="text-slate-600 leading-relaxed mb-4">
                 {project.results || `The project achieved significant results: ${project.metrics}`}
               </p>
               
               {project.clientTestimonial && (
-                <div className="bg-slate-800 p-4 rounded-lg border-l-4 border-teal-500">
-                  <p className="text-slate-300 italic">"{project.clientTestimonial}"</p>
+                <div className="bg-slate-50 p-4 rounded-lg border-l-4 border-teal-500">
+                  <p className="text-slate-700 italic">"{project.clientTestimonial}"</p>
                   <p className="text-sm text-slate-500 mt-2">— Client Testimonial</p>
                 </div>
               )}

@@ -48,7 +48,7 @@ const Footer = () => {
 
         <div className="border-t border-slate-700 mt-8 pt-8 text-center">
           <p className="text-slate-500">
-            © 2024 Scaleup Labs. All rights reserved. | Scaling AI responsibly for startups worldwide.
+            © {new Date().getFullYear()} Scaleup Labs. All rights reserved. | Scaling AI responsibly for startups worldwide.
           </p>
         </div>
       </div>

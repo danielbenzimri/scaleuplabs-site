@@ -23,18 +23,18 @@ const SourceRadioGroup = ({ selectedSource, onSourceChange }: SourceRadioGroupPr
 
     return (
         <div>
-            <label className="block text-sm font-medium mb-4 text-white">How did you find us?</label>
+            <label className="block text-sm font-medium mb-4 text-slate-900">How did you find us?</label>
             <RadioGroup value={selectedSource} onValueChange={onSourceChange} className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {sourceOptions.map((source) => (
                     <div key={source.value} className="flex items-center space-x-3">
                         <RadioGroupItem
                             value={source.value}
                             id={`source-${source.value}`}
-                            className="border-slate-500 text-teal-400"
+                            className="border-slate-300 text-teal-500"
                         />
                         <label
                             htmlFor={`source-${source.value}`}
-                            className="text-sm text-slate-300 cursor-pointer hover:text-teal-400 transition-colors"
+                            className="text-sm text-slate-600 cursor-pointer hover:text-teal-600 transition-colors"
                         >
                             {source.label}
                         </label>

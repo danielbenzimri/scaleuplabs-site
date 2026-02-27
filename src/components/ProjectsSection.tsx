@@ -24,19 +24,19 @@ const ProjectsSection = () => {
   // Show loading state
   if (isLoading) {
     return (
-      <section id="projects" className="py-20 bg-slate-900">
+      <section id="projects" className="py-20 bg-light-section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Featured Projects
             </h2>
-            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
               Loading our latest projects...
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-slate-800 rounded-2xl h-64 animate-pulse"></div>
+              <div key={i} className="bg-slate-200 rounded-2xl h-64 animate-pulse"></div>
             ))}
           </div>
         </div>
@@ -45,19 +45,19 @@ const ProjectsSection = () => {
   }
 
   return (
-    <section id="projects" className="py-24 bg-slate-900">
+    <section id="projects" className="py-24 bg-light-section-alt">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {error && (
-          <div className="mb-4 p-3 bg-amber-900/20 border border-amber-700/50 rounded-lg">
-            <p className="text-amber-300 text-sm">Using demo data - Contentful integration available</p>
+          <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+            <p className="text-amber-700 text-sm">Using demo data - Contentful integration available</p>
           </div>
         )}
 
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Featured Projects
           </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Real-world solutions that showcase our expertise in AI, Data Science, and scalable technology implementations.
           </p>
         </div>
@@ -76,37 +76,37 @@ const ProjectsSection = () => {
               <div
                 key={project.id}
                 onClick={() => handleViewDetails(project.id)}
-                className="group flex flex-col items-start h-full p-8 bg-slate-800 rounded-2xl border border-slate-700 shadow-xl hover:shadow-2xl hover:border-teal-500/30 hover:-translate-y-1 transition-all duration-300 cursor-pointer relative overflow-hidden"
+                className="group flex flex-col items-start h-full p-8 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-teal-500/30 hover:-translate-y-1 transition-all duration-300 cursor-pointer relative overflow-hidden"
               >
                 {/* Subtle top accent bar - now visible by default but muted */}
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-teal-500/80 to-emerald-500/80 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Category & Icon */}
                 <div className="flex items-center gap-2 mb-4">
-                  <IconComponent className="w-4 h-4 text-slate-500" />
-                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  <IconComponent className="w-4 h-4 text-slate-400" />
+                  <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
                     {project.category}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-teal-300 transition-colors">
+                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-slate-400 mb-6 leading-relaxed line-clamp-3">
+                <p className="text-slate-600 mb-6 leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
 
                 <div className="mt-auto w-full space-y-4">
                   {/* Impact Section */}
                   <div className="text-sm">
-                    <span className="font-semibold text-emerald-400 block mb-2">Impact:</span>
+                    <span className="font-semibold text-emerald-600 block mb-2">Impact:</span>
                     <ul className="space-y-1.5">
                       {metricsList.map((metric, idx) => (
-                        <li key={idx} className="flex items-start text-slate-300">
-                          <span className="mr-2 text-emerald-400 font-bold mt-0.5">•</span>
+                        <li key={idx} className="flex items-start text-slate-700">
+                          <span className="mr-2 text-emerald-500 font-bold mt-0.5">•</span>
                           <span className="leading-snug">{metric}</span>
                         </li>
                       ))}
@@ -114,11 +114,11 @@ const ProjectsSection = () => {
                   </div>
 
                   {/* Tags (Max 3) */}
-                  <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-700">
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-200">
                     {project.tags.slice(0, 3).map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="text-xs font-medium text-slate-400 bg-slate-700 px-2 py-1 rounded"
+                        className="text-xs font-medium text-slate-600 bg-slate-100 px-2 py-1 rounded"
                       >
                         {tag}
                       </span>

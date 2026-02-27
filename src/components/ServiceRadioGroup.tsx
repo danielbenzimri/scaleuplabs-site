@@ -24,18 +24,18 @@ const ServiceRadioGroup = ({ selectedService, onServiceChange }: ServiceRadioGro
 
   return (
     <div>
-      <label className="block text-sm font-medium mb-4 text-white">Service Interest</label>
+      <label className="block text-sm font-medium mb-4 text-slate-900">Service Interest</label>
       <RadioGroup value={selectedService} onValueChange={onServiceChange} className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {serviceOptions.map((service) => (
           <div key={service.value} className="flex items-center space-x-3">
             <RadioGroupItem
               value={service.value}
               id={service.value}
-              className="border-slate-500 text-teal-400"
+              className="border-slate-300 text-teal-500"
             />
             <label
               htmlFor={service.value}
-              className="text-sm text-slate-300 cursor-pointer hover:text-teal-400 transition-colors"
+              className="text-sm text-slate-600 cursor-pointer hover:text-teal-600 transition-colors"
             >
               {service.label}
             </label>
