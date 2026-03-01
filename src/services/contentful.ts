@@ -29,9 +29,11 @@ const transformProject = (entry: Entry<ProjectSkeleton>): Project => {
   // Debug: log the fields structure to determine correct mapping
   console.log('Contentful project entry.fields:', fields);
 
-  // Handle image field safely
+  // Handle image field - can be a string URL or a Contentful asset object
   let imageUrl: string | undefined;
-  if (fields.image && typeof fields.image === 'object' && 'url' in fields.image) {
+  if (typeof fields.image === 'string') {
+    imageUrl = fields.image;
+  } else if (fields.image && typeof fields.image === 'object' && 'url' in fields.image) {
     imageUrl = fields.image.url;
   }
 
