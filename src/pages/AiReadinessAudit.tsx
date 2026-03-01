@@ -118,90 +118,155 @@ const getExecutiveSummary = (score: number) => {
 
 // ─── Landing Page ─────────────────────────────────────────────────────────────
 const LandingPage = ({ onStart }: { onStart: () => void }) => (
-    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans">
-        <nav className="flex items-center justify-between px-6 py-5 border-b border-white/10">
+    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans flex flex-col">
+        <nav className="flex items-center justify-between px-6 py-4 border-b border-white/10 shrink-0">
             <a href="/" className="text-slate-400 hover:text-white transition flex items-center gap-2 text-sm font-medium">
                 <span>←</span> ScaleUp Labs
             </a>
             <span className="text-xs font-bold tracking-widest text-slate-500 uppercase">Diagnostic Toolkit</span>
         </nav>
 
-        <header className="max-w-3xl mx-auto px-6 pt-24 pb-16 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-[1.1]">
-                AI Integration Readiness & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Leverage Audit™</span>
-            </h1>
-            <p className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl mx-auto">
-                High-Authority Diagnostic Framework for Technology-Driven Companies. Stop guessing if you're ready for AI—measure your structural maturity and economic leverage.
-            </p>
-
-            <button
-                onClick={onStart}
-                className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-blue-900/40 transition-all hover:-translate-y-1 hover:shadow-blue-900/60"
-            >
-                Start the Diagnostic Board
-            </button>
-            <p className="text-sm text-slate-500 mt-6">Takes ~5 minutes. Requires technical architecture knowledge.</p>
-        </header>
-
-        <section className="max-w-4xl mx-auto px-6 py-16 border-t border-white/10 grid md:grid-cols-2 gap-12">
-            <div>
-                <h2 className="text-2xl font-bold mb-6">What We Measure</h2>
-                <ul className="space-y-5 text-slate-400 mt-6">
-                    <li className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-4 items-start">
-                        <div className="flex items-start gap-2.5">
-                            <span className="text-blue-500 font-medium text-base">1.</span>
-                            <strong className="text-slate-200 text-base leading-snug">Data Architecture Readiness:</strong>
-                        </div>
-                        <div className="text-slate-400 text-sm md:text-base ml-6 md:ml-0 md:pt-0">Can your data support AI?</div>
-                    </li>
-                    <li className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-4 items-start">
-                        <div className="flex items-start gap-2.5">
-                            <span className="text-blue-500 font-medium text-base">2.</span>
-                            <strong className="text-slate-200 text-base leading-snug">Workflow & Automation:</strong>
-                        </div>
-                        <div className="text-slate-400 text-sm md:text-base ml-6 md:ml-0 md:pt-0">Are your processes integration-ready?</div>
-                    </li>
-                    <li className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-4 items-start">
-                        <div className="flex items-start gap-2.5">
-                            <span className="text-blue-500 font-medium text-base">3.</span>
-                            <strong className="text-slate-200 text-base leading-snug">AI Leverage Opportunity:</strong>
-                        </div>
-                        <div className="text-slate-400 text-sm md:text-base ml-6 md:ml-0 md:pt-0">Where is the cognitive repetition?</div>
-                    </li>
-                    <li className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-4 items-start">
-                        <div className="flex items-start gap-2.5">
-                            <span className="text-blue-500 font-medium text-base">4.</span>
-                            <strong className="text-slate-200 text-base leading-snug">Systems Integration:</strong>
-                        </div>
-                        <div className="text-slate-400 text-sm md:text-base ml-6 md:ml-0 md:pt-0">Can you architect for scale?</div>
-                    </li>
-                    <li className="grid grid-cols-1 md:grid-cols-[220px_1fr] md:gap-4 items-start">
-                        <div className="flex items-start gap-2.5">
-                            <span className="text-blue-500 font-medium text-base">5.</span>
-                            <strong className="text-slate-200 text-base leading-snug">Economic & Strategic Impact:</strong>
-                        </div>
-                        <div className="text-slate-400 text-sm md:text-base ml-6 md:ml-0 md:pt-0">What is the ROI density?</div>
-                    </li>
-                </ul>
-            </div>
-            <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8">
-                <h3 className="text-xl font-bold mb-4">The Output</h3>
-                <p className="text-slate-400 mb-6">
-                    A definitive 0-100 maturity score across 5 crucial pillars, revealing exactly where your infrastructure creates AI leverage—and where you risk technical debt.
+        <main className="flex-1 flex flex-col items-center justify-center py-8 px-6">
+            <header className="max-w-3xl w-full text-center mb-10">
+                <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
+                    AI Integration Readiness & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Leverage Audit™</span>
+                </h1>
+                <p className="text-base md:text-lg text-slate-400 mb-6 max-w-2xl mx-auto">
+                    High-Authority Diagnostic Framework for Technology-Driven Companies. Stop guessing if you're ready for AI—measure your structural maturity and economic leverage.
                 </p>
-                <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-3 text-sm font-medium text-slate-300">
-                        <div className="w-2 h-2 rounded-full bg-emerald-500"></div> Instant visual scorecard
+
+                <button
+                    onClick={onStart}
+                    className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg px-8 py-3.5 rounded-xl shadow-lg shadow-blue-900/40 transition-all hover:-translate-y-1 hover:shadow-blue-900/60"
+                >
+                    Start the Diagnostic Board
+                </button>
+                <p className="text-xs text-slate-500 mt-4">Takes ~5 minutes. Requires technical architecture knowledge.</p>
+            </header>
+
+            <section className="w-full max-w-4xl border-t border-white/10 pt-8 text-left">
+
+                {/* Two-column layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+
+                    {/* LEFT — What We Measure (3/5 width) */}
+                    <div className="lg:col-span-3 bg-slate-800/40 border border-slate-700/50 rounded-2xl p-7 shadow-xl relative overflow-hidden">
+                        <div className="absolute bottom-[-20%] left-[-10%] w-72 h-72 bg-blue-500/8 blur-[90px] rounded-full pointer-events-none"></div>
+
+                        <p className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-3">Framework</p>
+                        <h3 className="text-lg font-bold text-white mb-6">What We Measure</h3>
+
+                        {/* Integration Readiness group */}
+                        <div className="mb-4">
+                            <div className="flex items-center gap-1.5 mb-3">
+                                <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-400">Integration Readiness</span>
+                            </div>
+                            <div className="space-y-3 pl-1">
+                                {[
+                                    { n: "1", label: "Data Architecture Readiness", sub: "Structural capability to support AI" },
+                                    { n: "2", label: "Workflow & Automation Maturity", sub: "Operational readiness for AI augmentation" },
+                                    { n: "4", label: "Systems Integration & Architecture", sub: "Technical readiness for reliable AI" },
+                                ].map(item => (
+                                    <div key={item.n} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 rounded-md bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 flex items-center justify-center text-xs font-black shrink-0">{item.n}</span>
+                                        <div>
+                                            <span className="text-sm font-semibold text-slate-200">{item.label}</span>
+                                            <span className="text-xs text-slate-500 block leading-tight">{item.sub}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="border-t border-slate-700/40 my-4"></div>
+
+                        {/* Leverage Audit group */}
+                        <div>
+                            <div className="flex items-center gap-1.5 mb-3">
+                                <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400">Leverage Audit</span>
+                            </div>
+                            <div className="space-y-3 pl-1">
+                                {[
+                                    { n: "3", label: "AI Leverage Opportunity Density", sub: "Where AI creates measurable efficiency gains" },
+                                    { n: "5", label: "Economic Leverage & Strategic Impact", sub: "Financial and strategic return potential" },
+                                ].map(item => (
+                                    <div key={item.n} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xs font-black shrink-0">{item.n}</span>
+                                        <div>
+                                            <span className="text-sm font-semibold text-slate-200">{item.label}</span>
+                                            <span className="text-xs text-slate-500 block leading-tight">{item.sub}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex items-center gap-3 text-sm font-medium text-slate-300">
-                        <div className="w-2 h-2 rounded-full bg-blue-500"></div> Strategic gap analysis
+
+                    {/* RIGHT — The Output (2/5 width) */}
+                    <div className="lg:col-span-2 bg-slate-800/40 border border-slate-700/50 rounded-2xl p-7 shadow-xl relative overflow-hidden flex flex-col justify-between">
+                        <div className="absolute top-[-20%] right-[-20%] w-56 h-56 bg-emerald-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+
+                        <div className="relative z-10">
+                            <p className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-3">Output</p>
+                            <h3 className="text-lg font-bold text-white mb-5">The Scorecard</h3>
+
+                            {/* Score ring display */}
+                            <div className="flex items-center gap-5 mb-5 bg-slate-900/50 border border-slate-700/40 rounded-xl p-4">
+                                {/* SVG arc ring */}
+                                <div className="shrink-0 relative w-16 h-16">
+                                    <svg viewBox="0 0 64 64" className="w-full h-full -rotate-90">
+                                        {/* Track */}
+                                        <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(59,130,246,0.15)" strokeWidth="5" />
+                                        {/* Arc — about 270° filled to suggest a range */}
+                                        <circle
+                                            cx="32" cy="32" r="26"
+                                            fill="none"
+                                            stroke="#3b82f6"
+                                            strokeWidth="5"
+                                            strokeLinecap="round"
+                                            strokeDasharray="123 40"
+                                            style={{ filter: "drop-shadow(0 0 6px rgba(59,130,246,0.6))" }}
+                                        />
+                                    </svg>
+                                    {/* Centre label */}
+                                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                                        <span className="text-[11px] font-black text-white leading-none">0–100</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="text-sm font-bold text-slate-200 leading-snug">Maturity Score</p>
+                                    <p className="text-xs text-slate-500 leading-snug mt-1">Across 5 weighted pillars</p>
+                                </div>
+                            </div>
+
+                            <p className="text-xs text-slate-400 leading-relaxed mb-5">
+                                A structured score across five diagnostic pillars, with a clear breakdown of your AI readiness and infrastructure gaps.
+                            </p>
+                        </div>
+
+                        {/* Deliverables */}
+                        <div className="relative z-10 space-y-2">
+                            <div className="flex items-center gap-3 text-xs font-medium text-slate-300 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-700/50">
+                                <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.8)] shrink-0"></div>
+                                Instant visual scorecard
+                            </div>
+                            <div className="flex items-center gap-3 text-xs font-medium text-slate-300 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-700/50">
+                                <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.8)] shrink-0"></div>
+                                Strategic gap analysis
+                            </div>
+                            <div className="flex items-center gap-3 text-xs font-medium text-slate-300 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-700/50">
+                                <div className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.8)] shrink-0"></div>
+                                Executive readiness report
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex items-center gap-3 text-sm font-medium text-slate-300">
-                        <div className="w-2 h-2 rounded-full bg-indigo-500"></div> Executive readiness report
-                    </div>
+
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
     </div>
 );
 
@@ -358,12 +423,53 @@ const LeadPage = ({ onComplete }: { onComplete: (info: { name: string; email: st
 // ─── Results Page ─────────────────────────────────────────────────────────────
 const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any }) => {
     const { pillarScores, totalScore } = calculateScores(formData);
+    const [llmSummary, setLlmSummary] = useState<{ sections: { heading: string; intro: string; bullets: string[] }[]; concise: string } | null>(null);
+    const [llmLoading, setLlmLoading] = useState(true);
+    const [llmError, setLlmError] = useState<string | null>(null);
+
+    React.useEffect(() => {
+        const generate = async () => {
+            setLlmLoading(true);
+            setLlmError(null);
+            try {
+                const res = await fetch("/api/generate-summary", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ pillarScores, totalScore }),
+                });
+                if (!res.ok) throw new Error(`API error ${res.status}`);
+                const data = await res.json();
+                setLlmSummary(data);
+            } catch (err: any) {
+                setLlmError(err?.message || "Failed to generate summary.");
+            } finally {
+                setLlmLoading(false);
+            }
+        };
+        generate();
+    }, []);
 
     const getReadinessTier = (score: number) => {
-        if (score >= 80) return { label: "Elite Readiness", desc: "Highly leveraged for advanced AI integration and scaled automation.", color: "text-emerald-400" };
-        if (score >= 60) return { label: "Production Capable", desc: "Solid functional baseline; specific architectural gaps remain.", color: "text-blue-400" };
-        if (score >= 40) return { label: "Emerging Capability", desc: "Significant technical debt handling. Focus on data fundamentals first.", color: "text-amber-400" };
-        return { label: "Critical Risk Profile", desc: "Foundations are missing. AI initiatives will likely fail or scale poorly.", color: "text-red-400" };
+        if (score >= 80) return {
+            label: "Elite Readiness",
+            desc: "All three Integration Readiness pillars (Data Architecture, Workflow Maturity, Systems Architecture) are production-grade, and both Leverage Audit pillars (AI Opportunity Density, Economic Impact) confirm strong ROI potential. The organisation is positioned to deploy and scale AI with minimal structural friction.",
+            color: "text-emerald-400"
+        };
+        if (score >= 60) return {
+            label: "Production Capable",
+            desc: "The Leverage Audit pillars confirm meaningful AI opportunity and economic upside. However, one or more Integration Readiness pillars — Data Architecture, Workflow Maturity, or Systems Architecture — carry structural gaps that must be resolved before AI initiatives can move to reliable production.",
+            color: "text-blue-400"
+        };
+        if (score >= 40) return {
+            label: "Emerging Capability",
+            desc: "Significant deficiencies exist across the Integration Readiness pillars (Data Architecture, Workflow Maturity, Systems Architecture), limiting the organisation's ability to deploy AI reliably. Even where the Leverage Audit pillars show economic potential, foundational infrastructure must be addressed first.",
+            color: "text-amber-400"
+        };
+        return {
+            label: "Critical Risk Profile",
+            desc: "Critical gaps span both pillar groups. The Integration Readiness infrastructure is insufficient for any production AI workload, and the Leverage Audit signals limited or unclear economic return. AI initiatives launched in this state carry a high risk of failure or cost overrun.",
+            color: "text-red-400"
+        };
     };
 
     const tier = getReadinessTier(totalScore);
@@ -405,50 +511,186 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
 
                         <h3 className="text-sm font-bold tracking-widest uppercase text-slate-400 mb-6 shrink-0 border-b border-slate-100 pb-2">Pillar Breakdown Analysis</h3>
 
-                        <div className="space-y-8 flex-1">
-                            {PILLARS.map((p, i) => {
-                                const score = pillarScores[`p${i + 1}`];
-                                const isStrong = score >= 75;
-                                const isWarning = score < 50;
+                        <div className="flex flex-col gap-10 flex-1">
+                            {/* ── Group 1: Integration Readiness ── */}
+                            {(() => {
+                                const group = [
+                                    { pillar: PILLARS[0], scoreKey: "p1" },
+                                    { pillar: PILLARS[1], scoreKey: "p2" },
+                                    { pillar: PILLARS[3], scoreKey: "p4" },
+                                ];
+                                const groupAvg = Math.round(group.reduce((sum, g) => sum + pillarScores[g.scoreKey], 0) / group.length);
+                                const isGroupStrong = groupAvg >= 75;
+                                const isGroupWeak = groupAvg < 50;
                                 return (
-                                    <div key={p.id}>
-                                        <div className="flex justify-between items-end mb-2">
-                                            <span className="font-bold text-slate-800 text-sm md:text-base">{p.title}</span>
-                                            <span className={`font-bold ${isStrong ? "text-emerald-600" : isWarning ? "text-red-500" : "text-blue-600"}`}>
-                                                {score}/100
-                                            </span>
+                                    <div>
+                                        <div className="flex items-center justify-between mb-5">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-2 h-2 rounded-full bg-indigo-500"></div>
+                                                <span className="text-sm font-bold text-slate-700 uppercase tracking-wider">Integration Readiness</span>
+                                            </div>
+                                            <div className={`flex flex-col items-end px-4 py-2 rounded-xl border ${isGroupStrong ? "bg-emerald-50 border-emerald-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-blue-50 border-blue-200"}`}>
+                                                <span className={`text-2xl font-black leading-none ${isGroupStrong ? "text-emerald-700" : isGroupWeak ? "text-red-700" : "text-blue-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
+                                                <span className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${isGroupStrong ? "text-emerald-500" : isGroupWeak ? "text-red-400" : "text-blue-400"}`}>Group Score</span>
+                                            </div>
                                         </div>
-                                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden mb-3">
-                                            <div
-                                                className={`h-full rounded-full transition-all duration-1000 ${isStrong ? "bg-emerald-500" : isWarning ? "bg-red-500" : "bg-blue-500"}`}
-                                                style={{ width: `${score}%` }}
-                                            ></div>
-                                        </div>
-                                        <div className="bg-slate-50 border border-slate-100 rounded-lg p-4 text-sm text-slate-600">
-                                            <span className="font-bold text-slate-700 mr-2">Why it matters:</span>
-                                            {p.explanation}
+                                        <div className="space-y-8">
+                                            {group.map(({ pillar, scoreKey }) => {
+                                                const score = pillarScores[scoreKey];
+                                                const isStrong = score >= 75;
+                                                const isWarning = score < 50;
+                                                return (
+                                                    <div key={pillar.id}>
+                                                        <div className="flex justify-between items-end mb-2">
+                                                            <span className="font-bold text-slate-800 text-sm md:text-base">{pillar.title}</span>
+                                                            <span className={`font-bold ${isStrong ? "text-emerald-600" : isWarning ? "text-red-500" : "text-blue-600"}`}>{score}/100</span>
+                                                        </div>
+                                                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden mb-3">
+                                                            <div className={`h-full rounded-full transition-all duration-1000 ${isStrong ? "bg-emerald-500" : isWarning ? "bg-red-500" : "bg-blue-500"}`} style={{ width: `${score}%` }}></div>
+                                                        </div>
+                                                        <div className="bg-slate-50 border border-slate-100 rounded-lg p-4 text-sm text-slate-600">
+                                                            <span className="font-bold text-slate-700 mr-2">Why it matters:</span>
+                                                            {pillar.explanation}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
                                     </div>
                                 );
-                            })}
+                            })()}
+
+                            {/* ── Divider ── */}
+                            <div className="border-t-2 border-dashed border-slate-100"></div>
+
+                            {/* ── Group 2: Leverage Audit ── */}
+                            {(() => {
+                                const group = [
+                                    { pillar: PILLARS[2], scoreKey: "p3" },
+                                    { pillar: PILLARS[4], scoreKey: "p5" },
+                                ];
+                                const groupAvg = Math.round(group.reduce((sum, g) => sum + pillarScores[g.scoreKey], 0) / group.length);
+                                const isGroupStrong = groupAvg >= 75;
+                                const isGroupWeak = groupAvg < 50;
+                                return (
+                                    <div>
+                                        <div className="flex items-center justify-between mb-5">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                                                <span className="text-sm font-bold text-slate-700 uppercase tracking-wider">Leverage Audit</span>
+                                            </div>
+                                            <div className={`flex flex-col items-end px-4 py-2 rounded-xl border ${isGroupStrong ? "bg-emerald-50 border-emerald-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-blue-50 border-blue-200"}`}>
+                                                <span className={`text-2xl font-black leading-none ${isGroupStrong ? "text-emerald-700" : isGroupWeak ? "text-red-700" : "text-blue-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
+                                                <span className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${isGroupStrong ? "text-emerald-500" : isGroupWeak ? "text-red-400" : "text-blue-400"}`}>Group Score</span>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-8">
+                                            {group.map(({ pillar, scoreKey }) => {
+                                                const score = pillarScores[scoreKey];
+                                                const isStrong = score >= 75;
+                                                const isWarning = score < 50;
+                                                return (
+                                                    <div key={pillar.id}>
+                                                        <div className="flex justify-between items-end mb-2">
+                                                            <span className="font-bold text-slate-800 text-sm md:text-base">{pillar.title}</span>
+                                                            <span className={`font-bold ${isStrong ? "text-emerald-600" : isWarning ? "text-red-500" : "text-blue-600"}`}>{score}/100</span>
+                                                        </div>
+                                                        <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden mb-3">
+                                                            <div className={`h-full rounded-full transition-all duration-1000 ${isStrong ? "bg-emerald-500" : isWarning ? "bg-red-500" : "bg-blue-500"}`} style={{ width: `${score}%` }}></div>
+                                                        </div>
+                                                        <div className="bg-slate-50 border border-slate-100 rounded-lg p-4 text-sm text-slate-600">
+                                                            <span className="font-bold text-slate-700 mr-2">Why it matters:</span>
+                                                            {pillar.explanation}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                );
+                            })()}
                         </div>
                     </div>
 
-                    {/* Bottom Block: Executive Summary snapshot */}
-                    <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-slate-200 flex flex-col h-full">
+                    {/* Executive Summary — LLM Generated */}
+                    <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-slate-200 flex flex-col">
                         <h2 className="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-100 pb-4 flex items-center gap-3">
-                            <div className="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center shadow-sm">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            <div className="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center shadow-sm shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                             </div>
-                            Executive Summary
+                            AI-Generated Executive Summary
+                            {llmLoading && (
+                                <span className="ml-2 text-xs font-normal text-slate-400 flex items-center gap-1.5">
+                                    <svg className="animate-spin w-3.5 h-3.5 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                                    </svg>
+                                    Generating…
+                                </span>
+                            )}
                         </h2>
 
-                        <div className="flex-1">
-                            <p className="text-lg leading-relaxed text-slate-700 bg-blue-50/50 p-6 rounded-2xl border border-blue-100 mb-8 font-medium">
-                                {getExecutiveSummary(totalScore)}
-                            </p>
-                        </div>
+                        {llmLoading && (
+                            <div className="space-y-4 animate-pulse">
+                                {/* Concise skeleton */}
+                                <div className="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                                    <div className="h-3 bg-slate-200 rounded w-1/4 mb-4"></div>
+                                    <div className="space-y-2.5">
+                                        <div className="h-3 bg-slate-200 rounded w-full"></div>
+                                        <div className="h-3 bg-slate-200 rounded w-5/6"></div>
+                                        <div className="h-3 bg-slate-200 rounded w-4/6"></div>
+                                    </div>
+                                </div>
+                                {/* Detailed skeleton */}
+                                <div className="space-y-2.5 mt-6">
+                                    <div className="h-3 bg-slate-100 rounded w-full"></div>
+                                    <div className="h-3 bg-slate-100 rounded w-full"></div>
+                                    <div className="h-3 bg-slate-100 rounded w-5/6"></div>
+                                    <div className="h-3 bg-slate-100 rounded w-full"></div>
+                                    <div className="h-3 bg-slate-100 rounded w-4/6"></div>
+                                </div>
+                            </div>
+                        )}
 
+                        {llmError && (
+                            <div className="bg-red-50 border border-red-200 rounded-xl p-5 text-sm text-red-700">
+                                <strong className="block mb-1">Could not generate AI summary.</strong>
+                                {llmError}
+                            </div>
+                        )}
+
+                        {llmSummary && !llmLoading && (
+                            <div className="flex flex-col gap-6">
+                                {/* Concise quick-read */}
+                                <div className="bg-blue-50/60 border border-blue-100 p-6 rounded-2xl">
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-blue-500 mb-3">Quick Executive Read</p>
+                                    <p className="text-slate-700 leading-relaxed font-medium">{llmSummary.concise}</p>
+                                </div>
+
+                                {/* Structured sections */}
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-5">Full Executive Summary</p>
+                                    <div className="space-y-6">
+                                        {llmSummary.sections.map((section, i) => (
+                                            <div key={i} className="border-l-2 border-slate-200 pl-5">
+                                                <h4 className="text-sm font-bold text-slate-800 mb-1">{section.heading}</h4>
+                                                {section.intro && (
+                                                    <p className="text-sm text-slate-500 mb-3 leading-relaxed">{section.intro}</p>
+                                                )}
+                                                <ul className="space-y-2">
+                                                    {section.bullets.map((bullet, j) => (
+                                                        <li key={j} className="flex items-start gap-2.5 text-sm text-slate-700">
+                                                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                                                            {bullet}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
 
