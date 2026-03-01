@@ -26,16 +26,13 @@
         // fallback: read from window
       }
     </script>
-    <script type="module">
-      const key = import.meta.env.VITE_POSTHOG_KEY;
-      if (key && key !== 'your_posthog_key_here') {
-        posthog.init(key, {
-          api_host: import.meta.env.VITE_POSTHOG_HOST || 'https://us.i.posthog.com',
-          person_profiles: 'identified_only',
-          capture_pageview: true,
-          capture_pageleave: true,
-        });
-      }
+    <script>
+      posthog.init('phc_qOTgrJGDcd5O0RJxV1yO94CzVGcSpPsN6VVqqsYMzNb', {
+        api_host: 'https://eu.i.posthog.com',
+        person_profiles: 'identified_only',
+        capture_pageview: true,
+        capture_pageleave: true,
+      });
     </script>
   </head>
 
