@@ -129,7 +129,7 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
         <main className="flex-1 flex flex-col items-center justify-center py-8 px-6">
             <header className="max-w-3xl w-full text-center mb-10">
                 <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
-                    AI Integration Readiness & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Leverage Audit™</span>
+                    AI Integration Readiness & <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Leverage Audit™</span>
                 </h1>
                 <p className="text-base md:text-lg text-slate-400 mb-6 max-w-2xl mx-auto">
                     High-Authority Diagnostic Framework for Technology-Driven Companies. Stop guessing if you're ready for AI—measure your structural maturity and economic leverage.
@@ -137,7 +137,7 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
 
                 <button
                     onClick={onStart}
-                    className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg px-8 py-3.5 rounded-xl shadow-lg shadow-blue-900/40 transition-all hover:-translate-y-1 hover:shadow-blue-900/60"
+                    className="bg-teal-600 hover:bg-teal-500 text-white font-bold text-lg px-8 py-3.5 rounded-xl shadow-lg shadow-teal-900/40 transition-all hover:-translate-y-1 hover:shadow-teal-900/60"
                 >
                     Start the Diagnostic Board
                 </button>
@@ -151,7 +151,7 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
 
                     {/* LEFT — What We Measure (3/5 width) */}
                     <div className="lg:col-span-3 bg-slate-800/40 border border-slate-700/50 rounded-2xl p-7 shadow-xl relative overflow-hidden">
-                        <div className="absolute bottom-[-20%] left-[-10%] w-72 h-72 bg-blue-500/8 blur-[90px] rounded-full pointer-events-none"></div>
+                        <div className="absolute bottom-[-20%] left-[-10%] w-72 h-72 bg-teal-500/8 blur-[90px] rounded-full pointer-events-none"></div>
 
                         <p className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-3">Framework</p>
                         <h3 className="text-lg font-bold text-white mb-6">What We Measure</h3>
@@ -159,8 +159,8 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
                         {/* Integration Readiness group */}
                         <div className="mb-4">
                             <div className="flex items-center gap-1.5 mb-3">
-                                <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div>
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-400">Integration Readiness</span>
+                                <div className="w-1.5 h-1.5 bg-teal-400 rounded-full"></div>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-teal-400">Integration Readiness</span>
                             </div>
                             <div className="space-y-3 pl-1">
                                 {[
@@ -169,7 +169,7 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
                                     { n: "4", label: "Systems Integration & Architecture", sub: "Technical readiness for reliable AI" },
                                 ].map(item => (
                                     <div key={item.n} className="flex items-center gap-3">
-                                        <span className="w-6 h-6 rounded-md bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 flex items-center justify-center text-xs font-black shrink-0">{item.n}</span>
+                                        <span className="w-6 h-6 rounded-md bg-teal-500/15 border border-teal-500/30 text-teal-400 flex items-center justify-center text-xs font-black shrink-0">{item.n}</span>
                                         <div>
                                             <span className="text-sm font-semibold text-slate-200">{item.label}</span>
                                             <span className="text-xs text-slate-500 block leading-tight">{item.sub}</span>
@@ -185,8 +185,8 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
                         {/* Leverage Audit group */}
                         <div>
                             <div className="flex items-center gap-1.5 mb-3">
-                                <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div>
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400">Leverage Audit</span>
+                                <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></div>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-cyan-400">Leverage Audit</span>
                             </div>
                             <div className="space-y-3 pl-1">
                                 {[
@@ -194,7 +194,7 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
                                     { n: "5", label: "Economic Leverage & Strategic Impact", sub: "Financial and strategic return potential" },
                                 ].map(item => (
                                     <div key={item.n} className="flex items-center gap-3">
-                                        <span className="w-6 h-6 rounded-md bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xs font-black shrink-0">{item.n}</span>
+                                        <span className="w-6 h-6 rounded-md bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xs font-black shrink-0">{item.n}</span>
                                         <div>
                                             <span className="text-sm font-semibold text-slate-200">{item.label}</span>
                                             <span className="text-xs text-slate-500 block leading-tight">{item.sub}</span>
@@ -207,7 +207,7 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
 
                     {/* RIGHT — The Output (2/5 width) */}
                     <div className="lg:col-span-2 bg-slate-800/40 border border-slate-700/50 rounded-2xl p-7 shadow-xl relative overflow-hidden flex flex-col justify-between">
-                        <div className="absolute top-[-20%] right-[-20%] w-56 h-56 bg-emerald-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+                        <div className="absolute top-[-20%] right-[-20%] w-56 h-56 bg-cyan-500/10 blur-[80px] rounded-full pointer-events-none"></div>
 
                         <div className="relative z-10">
                             <p className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-3">Output</p>
@@ -219,16 +219,16 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
                                 <div className="shrink-0 relative w-16 h-16">
                                     <svg viewBox="0 0 64 64" className="w-full h-full -rotate-90">
                                         {/* Track */}
-                                        <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(59,130,246,0.15)" strokeWidth="5" />
+                                        <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(20,184,166,0.15)" strokeWidth="5" />
                                         {/* Arc — about 270° filled to suggest a range */}
                                         <circle
                                             cx="32" cy="32" r="26"
                                             fill="none"
-                                            stroke="#3b82f6"
+                                            stroke="#14b8a6"
                                             strokeWidth="5"
                                             strokeLinecap="round"
                                             strokeDasharray="123 40"
-                                            style={{ filter: "drop-shadow(0 0 6px rgba(59,130,246,0.6))" }}
+                                            style={{ filter: "drop-shadow(0 0 6px rgba(20,184,166,0.6))" }}
                                         />
                                     </svg>
                                     {/* Centre label */}
@@ -250,15 +250,15 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
                         {/* Deliverables */}
                         <div className="relative z-10 space-y-2">
                             <div className="flex items-center gap-3 text-xs font-medium text-slate-300 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-700/50">
-                                <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.8)] shrink-0"></div>
+                                <div className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_6px_rgba(6,182,212,0.8)] shrink-0"></div>
                                 Instant visual scorecard
                             </div>
                             <div className="flex items-center gap-3 text-xs font-medium text-slate-300 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-700/50">
-                                <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.8)] shrink-0"></div>
+                                <div className="w-2 h-2 rounded-full bg-teal-500 shadow-[0_0_6px_rgba(20,184,166,0.8)] shrink-0"></div>
                                 Strategic gap analysis
                             </div>
                             <div className="flex items-center gap-3 text-xs font-medium text-slate-300 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-700/50">
-                                <div className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.8)] shrink-0"></div>
+                                <div className="w-2 h-2 rounded-full bg-teal-500 shadow-[0_0_6px_rgba(20,184,166,0.8)] shrink-0"></div>
                                 Executive readiness report
                             </div>
                         </div>
@@ -289,7 +289,7 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
                     <span className="font-bold text-sm text-slate-800">AI Integration Audit</span>
                     <div className="flex items-center gap-4">
                         <div className="w-24 md:w-48 h-2 bg-slate-100 rounded-full overflow-hidden">
-                            <div className="h-full bg-blue-600 transition-all duration-300 ease-out" style={{ width: `${progress}%` }} />
+                            <div className="h-full bg-teal-600 transition-all duration-300 ease-out" style={{ width: `${progress}%` }} />
                         </div>
                         <span className="text-xs font-bold text-slate-400 w-8">{progress}%</span>
                     </div>
@@ -324,9 +324,9 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
                                         <div className="flex-1">
                                             <div className="group inline-flex items-center gap-2 mb-1 relative cursor-help">
                                                 <h3 className="text-base font-bold text-slate-800 border-b border-dashed border-slate-300 pb-[1px]">{q.label}</h3>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400 group-hover:text-blue-500 transition-colors"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400 group-hover:text-teal-500 transition-colors"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
                                                 <div className="absolute left-0 bottom-full mb-3 w-72 p-4 bg-slate-800 border-slate-700 text-white text-sm rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                                                    <strong className="block text-blue-400 mb-1 text-xs tracking-wider uppercase">In simple terms:</strong>
+                                                    <strong className="block text-teal-400 mb-1 text-xs tracking-wider uppercase">In simple terms:</strong>
                                                     <span className="leading-relaxed block">{q.tooltip}</span>
                                                     <div className="absolute left-8 top-full border-[6px] border-transparent border-t-slate-800"></div>
                                                 </div>
@@ -341,12 +341,12 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
                                                         key={level.value}
                                                         onClick={() => handleSelect(q.id, level.value)}
                                                         className={`w-11 h-11 md:w-12 md:h-12 flex items-center justify-center rounded-xl border-2 transition-all ${selected
-                                                            ? "border-blue-600 bg-blue-50 text-blue-900 shadow-sm scale-105"
+                                                            ? "border-teal-600 bg-teal-50 text-teal-900 shadow-sm scale-105"
                                                             : "border-slate-200 hover:border-slate-300 bg-white text-slate-500 hover:bg-slate-50"
                                                             }`}
                                                         title={level.label}
                                                     >
-                                                        <span className={`text-lg font-black ${selected ? "text-blue-600" : "text-slate-400"}`}>{level.value}</span>
+                                                        <span className={`text-lg font-black ${selected ? "text-teal-600" : "text-slate-400"}`}>{level.value}</span>
                                                     </button>
                                                 );
                                             })}
@@ -363,7 +363,7 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
                         onClick={onSubmit}
                         disabled={!canSubmit}
                         className={`px-10 py-4 rounded-xl font-bold text-lg transition-all shadow-lg ${canSubmit
-                            ? "bg-blue-600 text-white hover:bg-blue-500 hover:-translate-y-1 hover:shadow-blue-500/30 cursor-pointer"
+                            ? "bg-teal-600 text-white hover:bg-teal-500 hover:-translate-y-1 hover:shadow-blue-500/30 cursor-pointer"
                             : "bg-slate-200 text-slate-400 cursor-not-allowed shadow-none"
                             }`}
                     >
@@ -384,7 +384,7 @@ const LeadPage = ({ onComplete }: { onComplete: (info: { name: string; email: st
     return (
         <div className="min-h-screen bg-slate-900 flex items-center justify-center px-6 font-sans">
             <div className="max-w-md w-full bg-slate-800 border border-slate-700 rounded-2xl p-8 text-center shadow-2xl">
-                <div className="w-16 h-16 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-teal-500/10 border border-teal-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <span className="text-3xl">📊</span>
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-2">Audit Compilation Complete</h2>
@@ -397,20 +397,20 @@ const LeadPage = ({ onComplete }: { onComplete: (info: { name: string; email: st
                         placeholder="Your Name"
                         value={name}
                         onChange={e => setName(e.target.value)}
-                        className="w-full bg-slate-900/50 border border-slate-600 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500"
+                        className="w-full bg-slate-900/50 border border-slate-600 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500"
                     />
                     <input
                         type="email"
                         placeholder="Work Email"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
-                        className="w-full bg-slate-900/50 border border-slate-600 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500"
+                        className="w-full bg-slate-900/50 border border-slate-600 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500"
                     />
                 </div>
                 <button
                     disabled={!name || !email}
                     onClick={() => onComplete({ name, email })}
-                    className={`w-full py-4 rounded-xl font-bold text-base transition-all ${name && email ? "bg-blue-600 text-white hover:bg-blue-500" : "bg-slate-700 text-slate-500 cursor-not-allowed"
+                    className={`w-full py-4 rounded-xl font-bold text-base transition-all ${name && email ? "bg-teal-600 text-white hover:bg-teal-500" : "bg-slate-700 text-slate-500 cursor-not-allowed"
                         }`}
                 >
                     View Full Dashboard
@@ -453,12 +453,12 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
         if (score >= 80) return {
             label: "Elite Readiness",
             desc: "All three Integration Readiness pillars (Data Architecture, Workflow Maturity, Systems Architecture) are production-grade, and both Leverage Audit pillars (AI Opportunity Density, Economic Impact) confirm strong ROI potential. The organisation is positioned to deploy and scale AI with minimal structural friction.",
-            color: "text-emerald-400"
+            color: "text-cyan-400"
         };
         if (score >= 60) return {
             label: "Production Capable",
             desc: "The Leverage Audit pillars confirm meaningful AI opportunity and economic upside. However, one or more Integration Readiness pillars — Data Architecture, Workflow Maturity, or Systems Architecture — carry structural gaps that must be resolved before AI initiatives can move to reliable production.",
-            color: "text-blue-400"
+            color: "text-teal-400"
         };
         if (score >= 40) return {
             label: "Emerging Capability",
@@ -476,7 +476,7 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
 
     return (
         <div className="min-h-screen bg-slate-50 font-sans pb-24">
-            <div className="bg-slate-900 text-white pt-16 pb-32 px-6 shadow-xl border-b-[8px] border-blue-600">
+            <div className="bg-slate-900 text-white pt-16 pb-32 px-6 shadow-xl border-b-[8px] border-teal-600">
                 <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
                     <div className="flex-1">
                         <div className="inline-block px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-bold tracking-widest uppercase mb-6 text-slate-300">
@@ -526,12 +526,12 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                     <div>
                                         <div className="flex items-center justify-between mb-5">
                                             <div className="flex items-center gap-2">
-                                                <div className="w-2 h-2 rounded-full bg-indigo-500"></div>
+                                                <div className="w-2 h-2 rounded-full bg-teal-500"></div>
                                                 <span className="text-sm font-bold text-slate-700 uppercase tracking-wider">Integration Readiness</span>
                                             </div>
-                                            <div className={`flex flex-col items-end px-4 py-2 rounded-xl border ${isGroupStrong ? "bg-emerald-50 border-emerald-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-blue-50 border-blue-200"}`}>
-                                                <span className={`text-2xl font-black leading-none ${isGroupStrong ? "text-emerald-700" : isGroupWeak ? "text-red-700" : "text-blue-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
-                                                <span className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${isGroupStrong ? "text-emerald-500" : isGroupWeak ? "text-red-400" : "text-blue-400"}`}>Group Score</span>
+                                            <div className={`flex flex-col items-end px-4 py-2 rounded-xl border ${isGroupStrong ? "bg-cyan-50 border-cyan-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-teal-50 border-teal-200"}`}>
+                                                <span className={`text-2xl font-black leading-none ${isGroupStrong ? "text-cyan-700" : isGroupWeak ? "text-red-700" : "text-teal-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
+                                                <span className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${isGroupStrong ? "text-cyan-500" : isGroupWeak ? "text-red-400" : "text-teal-400"}`}>Group Score</span>
                                             </div>
                                         </div>
                                         <div className="space-y-8">
@@ -543,10 +543,10 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                                     <div key={pillar.id}>
                                                         <div className="flex justify-between items-end mb-2">
                                                             <span className="font-bold text-slate-800 text-sm md:text-base">{pillar.title}</span>
-                                                            <span className={`font-bold ${isStrong ? "text-emerald-600" : isWarning ? "text-red-500" : "text-blue-600"}`}>{score}/100</span>
+                                                            <span className={`font-bold ${isStrong ? "text-cyan-600" : isWarning ? "text-red-500" : "text-teal-600"}`}>{score}/100</span>
                                                         </div>
                                                         <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden mb-3">
-                                                            <div className={`h-full rounded-full transition-all duration-1000 ${isStrong ? "bg-emerald-500" : isWarning ? "bg-red-500" : "bg-blue-500"}`} style={{ width: `${score}%` }}></div>
+                                                            <div className={`h-full rounded-full transition-all duration-1000 ${isStrong ? "bg-cyan-500" : isWarning ? "bg-red-500" : "bg-teal-500"}`} style={{ width: `${score}%` }}></div>
                                                         </div>
                                                         <div className="bg-slate-50 border border-slate-100 rounded-lg p-4 text-sm text-slate-600">
                                                             <span className="font-bold text-slate-700 mr-2">Why it matters:</span>
@@ -576,12 +576,12 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                     <div>
                                         <div className="flex items-center justify-between mb-5">
                                             <div className="flex items-center gap-2">
-                                                <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                                                <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
                                                 <span className="text-sm font-bold text-slate-700 uppercase tracking-wider">Leverage Audit</span>
                                             </div>
-                                            <div className={`flex flex-col items-end px-4 py-2 rounded-xl border ${isGroupStrong ? "bg-emerald-50 border-emerald-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-blue-50 border-blue-200"}`}>
-                                                <span className={`text-2xl font-black leading-none ${isGroupStrong ? "text-emerald-700" : isGroupWeak ? "text-red-700" : "text-blue-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
-                                                <span className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${isGroupStrong ? "text-emerald-500" : isGroupWeak ? "text-red-400" : "text-blue-400"}`}>Group Score</span>
+                                            <div className={`flex flex-col items-end px-4 py-2 rounded-xl border ${isGroupStrong ? "bg-cyan-50 border-cyan-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-teal-50 border-teal-200"}`}>
+                                                <span className={`text-2xl font-black leading-none ${isGroupStrong ? "text-cyan-700" : isGroupWeak ? "text-red-700" : "text-teal-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
+                                                <span className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${isGroupStrong ? "text-cyan-500" : isGroupWeak ? "text-red-400" : "text-teal-400"}`}>Group Score</span>
                                             </div>
                                         </div>
                                         <div className="space-y-8">
@@ -593,10 +593,10 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                                     <div key={pillar.id}>
                                                         <div className="flex justify-between items-end mb-2">
                                                             <span className="font-bold text-slate-800 text-sm md:text-base">{pillar.title}</span>
-                                                            <span className={`font-bold ${isStrong ? "text-emerald-600" : isWarning ? "text-red-500" : "text-blue-600"}`}>{score}/100</span>
+                                                            <span className={`font-bold ${isStrong ? "text-cyan-600" : isWarning ? "text-red-500" : "text-teal-600"}`}>{score}/100</span>
                                                         </div>
                                                         <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden mb-3">
-                                                            <div className={`h-full rounded-full transition-all duration-1000 ${isStrong ? "bg-emerald-500" : isWarning ? "bg-red-500" : "bg-blue-500"}`} style={{ width: `${score}%` }}></div>
+                                                            <div className={`h-full rounded-full transition-all duration-1000 ${isStrong ? "bg-cyan-500" : isWarning ? "bg-red-500" : "bg-teal-500"}`} style={{ width: `${score}%` }}></div>
                                                         </div>
                                                         <div className="bg-slate-50 border border-slate-100 rounded-lg p-4 text-sm text-slate-600">
                                                             <span className="font-bold text-slate-700 mr-2">Why it matters:</span>
@@ -615,13 +615,13 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                     {/* Executive Summary — LLM Generated */}
                     <div className="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-slate-200 flex flex-col">
                         <h2 className="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-100 pb-4 flex items-center gap-3">
-                            <div className="w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center shadow-sm shrink-0">
+                            <div className="w-8 h-8 bg-teal-600 text-white rounded-lg flex items-center justify-center shadow-sm shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                             </div>
                             AI-Generated Executive Summary
                             {llmLoading && (
                                 <span className="ml-2 text-xs font-normal text-slate-400 flex items-center gap-1.5">
-                                    <svg className="animate-spin w-3.5 h-3.5 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <svg className="animate-spin w-3.5 h-3.5 text-teal-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
                                     </svg>
@@ -633,7 +633,7 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                         {llmLoading && (
                             <div className="space-y-4 animate-pulse">
                                 {/* Concise skeleton */}
-                                <div className="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                                <div className="bg-teal-50/50 p-6 rounded-2xl border border-teal-100">
                                     <div className="h-3 bg-slate-200 rounded w-1/4 mb-4"></div>
                                     <div className="space-y-2.5">
                                         <div className="h-3 bg-slate-200 rounded w-full"></div>
@@ -662,8 +662,8 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                         {llmSummary && !llmLoading && (
                             <div className="flex flex-col gap-6">
                                 {/* Concise quick-read */}
-                                <div className="bg-blue-50/60 border border-blue-100 p-6 rounded-2xl">
-                                    <p className="text-[10px] font-bold uppercase tracking-widest text-blue-500 mb-3">Quick Executive Read</p>
+                                <div className="bg-teal-50/60 border border-teal-100 p-6 rounded-2xl">
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-teal-500 mb-3">Quick Executive Read</p>
                                     <p className="text-slate-700 leading-relaxed font-medium">{llmSummary.concise}</p>
                                 </div>
 
@@ -680,7 +680,7 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                                 <ul className="space-y-2">
                                                     {section.bullets.map((bullet, j) => (
                                                         <li key={j} className="flex items-start gap-2.5 text-sm text-slate-700">
-                                                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                                                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
                                                             {bullet}
                                                         </li>
                                                     ))}
@@ -695,15 +695,15 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                 </div>
 
                 <div className="bg-slate-900 border border-slate-700 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
-                    <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-blue-500/20 blur-3xl rounded-full pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-indigo-500/20 blur-3xl rounded-full pointer-events-none"></div>
+                    <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-teal-500/20 blur-3xl rounded-full pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-teal-500/20 blur-3xl rounded-full pointer-events-none"></div>
 
                     <div className="relative z-10">
                         <h2 className="text-2xl font-bold mb-4">Looking to optimize your capability?</h2>
                         <p className="text-slate-400 mb-8 max-w-2xl mx-auto text-lg">
                             We help technology-driven companies identify architectural gaps and successfully deploy production-grade AI infrastructure.
                         </p>
-                        <a href="https://scaleuplabs.dev/#contact" target="_blank" rel="noreferrer" className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-blue-900/40 transition-all hover:-translate-y-1">
+                        <a href="https://scaleuplabs.dev/#contact" target="_blank" rel="noreferrer" className="inline-block bg-teal-600 hover:bg-teal-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-teal-900/40 transition-all hover:-translate-y-1">
                             Book a Capability Mapping Session
                         </a>
                     </div>
