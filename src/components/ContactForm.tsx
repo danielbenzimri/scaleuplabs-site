@@ -3,13 +3,12 @@ import { useState } from "react";
 import ServiceRadioGroup from "./ServiceRadioGroup";
 import SourceRadioGroup from "./SourceRadioGroup";
 
-const FORMSUBMIT_URL = `https://formsubmit.co/${import.meta.env.VITE_FORM_EMAILS || 'daniel@scaleuplabs.dev'}`;
+const FORMSUBMIT_URL = "https://formsubmit.co/daniel@scaleuplabs.dev";
+const CC_EMAILS = "niv@scaleuplabs.dev,nivyul@gmail.com,daniel@gaialabs.ai";
 
 const ContactForm = () => {
   const [selectedService, setSelectedService] = useState<string>("");
   const [selectedSource, setSelectedSource] = useState<string>("");
-
-  const CC_EMAILS = import.meta.env.VITE_FORM_CC_EMAILS || "";
 
   return (
     <div>

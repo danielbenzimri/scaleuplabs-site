@@ -2,7 +2,7 @@
 import { Mail, MapPin, Calendar } from "lucide-react";
 
 const ContactInfo = () => {
-  const calcomUsername = import.meta.env.VITE_CALCOM_USERNAME || 'scaleuplabs';
+  const calcomUsername = 'scaleuplabs';
 
   return (
     <div>
