@@ -1,8 +1,6 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ExternalLink, Github, Clock, Target, Lightbulb, Award } from "lucide-react";
+import { X, Award, Clock, Target, Lightbulb, Quote } from "lucide-react";
 import { Project } from "@/types/contentful";
 
 interface ProjectDetailModalProps {
@@ -12,200 +10,167 @@ interface ProjectDetailModalProps {
   onClose: () => void;
 }
 
+// Fallback images by category
+const categoryImages: Record<string, string> = {
+  "Data Science": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop",
+  "Generative AI": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=600&fit=crop",
+  "Data Engineering": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=600&fit=crop",
+  "AI/ML": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=600&fit=crop",
+  "ML Engineering and Generative AI": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=600&fit=crop",
+  "AI Consulting": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop",
+  "ML": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=600&fit=crop",
+};
+const defaultImage = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop";
+
 const ProjectDetailModal = ({ projectId, projects, isOpen, onClose }: ProjectDetailModalProps) => {
-  // Find the project by ID in the provided projects array
   const project = projects.find((p) => p.id === projectId);
 
   if (!project) {
     return (
-      <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="max-w-4xl">
+      <Sheet open={isOpen} onOpenChange={onClose}>
+        <SheetContent side="right" className="w-full sm:max-w-[90vw] overflow-y-auto">
           <div className="text-center py-12">
-            <p className="text-gray-500">Project not found</p>
+            <p className="text-slate-600">Project not found</p>
           </div>
-        </DialogContent>
-      </Dialog>
+        </SheetContent>
+      </Sheet>
     );
   }
 
-  const IconComponent = project.icon;
+  const heroImage = project.image || categoryImages[project.category] || defaultImage;
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center">
-              {IconComponent && <IconComponent className="w-6 h-6 text-blue-600" />}
-            </div>
-            <div>
-              <DialogTitle className="text-2xl font-bold text-gray-900">
-                {project.title}
-              </DialogTitle>
-              <Badge variant="secondary" className="mt-1">
-                {project.category}
-              </Badge>
-            </div>
-          </div>
-        </DialogHeader>
+    <Sheet open={isOpen} onOpenChange={onClose}>
+      <SheetContent side="right" className="w-full sm:max-w-[720px] p-0 overflow-y-auto border-l border-slate-200">
+        {/* Hero Image Header */}
+        <div className="relative h-64 overflow-hidden">
+          <img
+            src={heroImage}
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-slate-900/20" />
 
-        {/* Hero Image */}
-        {project.image && (
-          <div className="mb-6">
-            <img 
-              src={project.image} 
-              alt={project.title}
-              className="w-full h-64 object-cover rounded-lg"
-            />
-          </div>
-        )}
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/40 flex items-center justify-center text-white transition-colors"
+            aria-label="Close"
+          >
+            <X className="w-5 h-5" />
+          </button>
 
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div className="bg-green-50 p-4 rounded-lg">
-            <div className="flex items-center space-x-2 mb-2">
-              <Award className="w-5 h-5 text-green-600" />
-              <span className="font-semibold text-green-800">Results</span>
-            </div>
-            <p className="text-green-700 text-sm">{project.metrics}</p>
+          {/* Title overlay */}
+          <div className="absolute bottom-6 left-8 right-8">
+            <Badge className="bg-teal-500/90 text-white border-0 mb-3">
+              {project.category}
+            </Badge>
+            <h2 className="text-2xl font-bold text-white leading-tight">
+              {project.title}
+            </h2>
           </div>
-          
+        </div>
+
+        {/* Quick Stats Bar */}
+        <div className="flex items-stretch divide-x divide-slate-200 border-b border-slate-200 bg-slate-50">
+          <div className="flex-1 px-5 py-4">
+            <div className="flex items-center gap-2 text-xs font-medium text-emerald-600 uppercase tracking-wider mb-1">
+              <Award className="w-3.5 h-3.5" />
+              Results
+            </div>
+            <p className="text-sm text-slate-700 leading-snug">{project.metrics}</p>
+          </div>
           {project.timeline && (
-            <div className="bg-blue-50 p-4 rounded-lg">
-              <div className="flex items-center space-x-2 mb-2">
-                <Clock className="w-5 h-5 text-blue-600" />
-                <span className="font-semibold text-blue-800">Timeline</span>
+            <div className="flex-1 px-5 py-4">
+              <div className="flex items-center gap-2 text-xs font-medium text-teal-600 uppercase tracking-wider mb-1">
+                <Clock className="w-3.5 h-3.5" />
+                Timeline
               </div>
-              <p className="text-blue-700 text-sm">{project.timeline}</p>
+              <p className="text-sm text-slate-700 leading-snug">{project.timeline}</p>
             </div>
           )}
-          
-          <div className="bg-purple-50 p-4 rounded-lg">
-            <div className="flex items-center space-x-2 mb-2">
-              <Target className="w-5 h-5 text-purple-600" />
-              <span className="font-semibold text-purple-800">Category</span>
-            </div>
-            <p className="text-purple-700 text-sm">{project.category}</p>
-          </div>
         </div>
 
-        {/* Main Content Tabs */}
-        <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="challenge">Challenge</TabsTrigger>
-            <TabsTrigger value="solution">Solution</TabsTrigger>
-            <TabsTrigger value="results">Results</TabsTrigger>
-          </TabsList>
-          
-          <TabsContent value="overview" className="mt-6">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold mb-3">Project Overview</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {project.detailedDescription || project.description}
-                </p>
-              </div>
-              
-              {project.technologies && (
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">Technologies Used</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, index) => (
-                      <Badge key={index} variant="outline">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              )}
+        {/* Scrollable Content */}
+        <div className="px-8 py-8 space-y-10">
 
-              {project.images && project.images.length > 0 && (
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">Project Gallery</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    {project.images.map((image, index) => (
-                      <img 
-                        key={index}
-                        src={image} 
-                        alt={`${project.title} - Image ${index + 1}`}
-                        className="w-full h-32 object-cover rounded-lg"
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="challenge" className="mt-6">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2 mb-4">
-                <Lightbulb className="w-6 h-6 text-orange-600" />
-                <h3 className="text-lg font-semibold">The Challenge</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                {project.challenges || "This project presented unique challenges that required innovative solutions and deep technical expertise."}
-              </p>
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="solution" className="mt-6">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2 mb-4">
-                <Target className="w-6 h-6 text-blue-600" />
-                <h3 className="text-lg font-semibold">Our Solution</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">
-                {project.solutions || "We developed a comprehensive solution that addressed all technical requirements while ensuring scalability and maintainability."}
-              </p>
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="results" className="mt-6">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2 mb-4">
-                <Award className="w-6 h-6 text-green-600" />
-                <h3 className="text-lg font-semibold">Results & Impact</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                {project.results || `The project achieved significant results: ${project.metrics}`}
-              </p>
-              
-              {project.clientTestimonial && (
-                <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
-                  <p className="text-gray-700 italic">"{project.clientTestimonial}"</p>
-                  <p className="text-sm text-gray-500 mt-2">— Client Testimonial</p>
-                </div>
-              )}
-            </div>
-          </TabsContent>
-        </Tabs>
+          {/* Overview */}
+          <section>
+            <h3 className="text-lg font-bold text-slate-900 mb-3">Project Overview</h3>
+            <p className="text-slate-600 leading-relaxed whitespace-pre-line">
+              {project.detailedDescription || project.description}
+            </p>
+          </section>
 
-        {/* Action Buttons */}
-        <div className="flex gap-3 mt-6 pt-6 border-t">
-          {project.demoUrl && (
-            <Button asChild>
-              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="w-4 h-4 mr-2" />
-                View Demo
-              </a>
-            </Button>
+          {/* Technologies */}
+          {project.technologies && project.technologies.length > 0 && (
+            <section>
+              <h3 className="text-lg font-bold text-slate-900 mb-3">Technologies</h3>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1.5 text-sm font-medium text-slate-600 bg-slate-100 rounded-lg border border-slate-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </section>
           )}
-          {project.githubUrl && (
-            <Button variant="outline" asChild>
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4 mr-2" />
-                View Code
-              </a>
-            </Button>
+
+          {/* Challenge */}
+          {project.challenges && (
+            <section className="border-l-4 border-amber-400 pl-6">
+              <div className="flex items-center gap-2 mb-3">
+                <Lightbulb className="w-5 h-5 text-amber-500" />
+                <h3 className="text-lg font-bold text-slate-900">The Challenge</h3>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                {project.challenges}
+              </p>
+            </section>
           )}
-          <Button variant="outline" onClick={onClose}>
-            Close
-          </Button>
+
+          {/* Solution */}
+          {project.solutions && (
+            <section className="border-l-4 border-teal-400 pl-6">
+              <div className="flex items-center gap-2 mb-3">
+                <Target className="w-5 h-5 text-teal-500" />
+                <h3 className="text-lg font-bold text-slate-900">Our Solution</h3>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                {project.solutions}
+              </p>
+            </section>
+          )}
+
+          {/* Results */}
+          {project.results && (
+            <section className="border-l-4 border-emerald-400 pl-6">
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="w-5 h-5 text-emerald-500" />
+                <h3 className="text-lg font-bold text-slate-900">Results & Impact</h3>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                {project.results}
+              </p>
+            </section>
+          )}
+
+          {/* Client Testimonial */}
+          {project.clientTestimonial && (
+            <section className="bg-slate-50 rounded-xl p-6">
+              <Quote className="w-8 h-8 text-teal-500/30 mb-3" />
+              <p className="text-slate-700 italic leading-relaxed">
+                "{project.clientTestimonial}"
+              </p>
+              <p className="text-sm text-slate-400 mt-3">— Client Testimonial</p>
+            </section>
+          )}
         </div>
-      </DialogContent>
-    </Dialog>
+      </SheetContent>
+    </Sheet>
   );
 };
 

@@ -1,17 +1,17 @@
 import { Briefcase, Clock, Handshake, ArrowRight } from "lucide-react";
 
 const DeliveryCard = ({ model }: { model: any }) => (
-    <div className="group bg-blue-50 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-blue-100 p-6 flex flex-col h-full">
+    <div className="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-slate-200 p-6 flex flex-col h-full">
         <div className="flex items-center mb-4">
-            <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-xl group-hover:scale-110 transition-transform duration-300 group-hover:bg-blue-600 group-hover:text-white text-blue-600 mr-4">
+            <div className="flex items-center justify-center w-12 h-12 bg-slate-100 rounded-xl group-hover:scale-110 transition-transform duration-300 group-hover:bg-teal-500 group-hover:text-white text-teal-600 mr-4">
                 {model.icon}
             </div>
-            <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+            <h3 className="text-lg font-bold text-slate-900 group-hover:text-teal-600 transition-colors">
                 {model.title}
             </h3>
         </div>
 
-        <p className="text-gray-600 text-sm leading-relaxed">
+        <p className="text-slate-600 text-sm leading-relaxed">
             {model.description}
         </p>
     </div>
@@ -37,13 +37,13 @@ const DeliveryModelsSection = () => {
     ];
 
     return (
-        <section id="delivery-models" className="py-12 bg-tech-modern-section">
+        <section id="delivery-models" className="py-12 bg-light-section">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 border-indigo-600 inline-block border-b-4 pb-2">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 border-teal-500 inline-block border-b-4 pb-2">
                         Delivery Models
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                         Flexible engagement options tailored to your stage and needs.
                     </p>
                 </div>

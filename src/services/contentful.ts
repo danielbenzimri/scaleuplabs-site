@@ -29,9 +29,11 @@ const transformProject = (entry: Entry<ProjectSkeleton>): Project => {
   // Debug: log the fields structure to determine correct mapping
   console.log('Contentful project entry.fields:', fields);
 
-  // Handle image field safely
+  // Handle image field - can be a string URL or a Contentful asset object
   let imageUrl: string | undefined;
-  if (fields.image && typeof fields.image === 'object' && 'url' in fields.image) {
+  if (typeof fields.image === 'string') {
+    imageUrl = fields.image;
+  } else if (fields.image && typeof fields.image === 'object' && 'url' in fields.image) {
     imageUrl = fields.image.url;
   }
 
@@ -60,13 +62,14 @@ const transformProject = (entry: Entry<ProjectSkeleton>): Project => {
 // Transform Contentful testimonial data to our Testimonial interface
 const transformTestimonial = (entry: Entry<TestimonialSkeleton>): Testimonial => {
   const fields = entry.fields;
+  const image = fields.image as string;
 
   return {
     id: entry.sys.id,
     name: fields.name,
     role: fields.role,
     company: fields.company,
-    image: fields.image,
+    image: image.startsWith('//') ? `https:${image}` : image,
     rating: fields.rating,
     testimonial: fields.testimonial,
   };
