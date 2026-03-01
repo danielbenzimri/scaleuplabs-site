@@ -36,6 +36,11 @@ jobs:
           VITE_CONTENTFUL_SPACE_ID: ${{ secrets.VITE_CONTENTFUL_SPACE_ID }}
           VITE_CONTENTFUL_ACCESS_TOKEN: ${{ secrets.VITE_CONTENTFUL_ACCESS_TOKEN }}
           VITE_USE_CONTENTFUL: ${{ secrets.VITE_USE_CONTENTFUL }}
+          VITE_POSTHOG_KEY: ${{ secrets.VITE_POSTHOG_KEY }}
+          VITE_POSTHOG_HOST: ${{ secrets.VITE_POSTHOG_HOST }}
+          VITE_FORM_EMAILS: ${{ secrets.VITE_FORM_EMAILS }}
+          VITE_FORM_CC_EMAILS: ${{ secrets.VITE_FORM_CC_EMAILS }}
+          VITE_CALCOM_USERNAME: ${{ secrets.VITE_CALCOM_USERNAME }}
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
