@@ -25,7 +25,7 @@ const ContactInfo = () => {
           <div>
             <p className="font-medium text-slate-900">Schedule a Call</p>
             <a
-              href={`https://cal.com/${calcomUsername}`}
+              href={`https://cal.eu/${calcomUsername}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-teal-600 hover:text-teal-500 font-medium transition-colors"
