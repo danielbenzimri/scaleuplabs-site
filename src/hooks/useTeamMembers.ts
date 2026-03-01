@@ -11,8 +11,8 @@ const mockTeamMembers: TeamMember[] = [
     role: "Founder & CEO",
     bio: "Experienced leader with years of expertise in data science and AI, focused on helping startups build scalable AI departments.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    linkedin: "#",
-    email: "daniel@scaleuplabs.com"
+    linkedin: "https://www.linkedin.com/in/danielaviram-1982/",
+    email: "daniel@scaleuplabs.dev"
   },
   {
     id: 'mock-2',
@@ -20,8 +20,8 @@ const mockTeamMembers: TeamMember[] = [
     role: "Founder & CTO",
     bio: "Technical visionary with deep expertise in AI architecture and full-stack development, bringing enterprise-grade solutions to startups.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-    linkedin: "#",
-    email: "niv@scaleuplabs.com"
+    linkedin: "https://www.linkedin.com/in/niv-youlevich-10632226/",
+    email: "niv@scaleuplabs.dev"
   }
 ];
 

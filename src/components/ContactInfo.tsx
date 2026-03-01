@@ -2,6 +2,8 @@
 import { Mail, MapPin, Calendar } from "lucide-react";
 
 const ContactInfo = () => {
+  const calcomUsername = import.meta.env.VITE_CALCOM_USERNAME || 'scaleuplabs';
+
   return (
     <div>
       <h3 className="text-2xl font-semibold mb-6 text-slate-900">Get In Touch</h3>
@@ -22,7 +24,14 @@ const ContactInfo = () => {
           <Calendar className="w-6 h-6 text-teal-500" />
           <div>
             <p className="font-medium text-slate-900">Schedule a Call</p>
-            <p className="text-slate-600">Book a free consultation</p>
+            <a
+              href={`https://cal.com/${calcomUsername}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-600 hover:text-teal-500 font-medium transition-colors"
+            >
+              Book a free consultation
+            </a>
           </div>
         </div>
         <div className="flex items-center space-x-4">

@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -15,8 +15,9 @@ const Footer = () => {
               responsible, and enterprise-grade solutions.
             </p>
             <div className="flex space-x-4">
-              <Linkedin className="w-6 h-6 text-slate-400 hover:text-teal-400 cursor-pointer transition-colors" />
-              <Github className="w-6 h-6 text-slate-400 hover:text-teal-400 cursor-pointer transition-colors" />
+              <a href="https://www.linkedin.com/company/scaleup-labs" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-6 h-6 text-slate-400 hover:text-teal-400 cursor-pointer transition-colors" />
+              </a>
               <a href="mailto:info@scaleuplabs.dev">
                 <Mail className="w-6 h-6 text-slate-400 hover:text-teal-400 cursor-pointer transition-colors" />
               </a>
@@ -26,12 +27,12 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><span className="text-slate-400 hover:text-teal-400 transition-colors cursor-pointer">Data Science</span></li>
-              <li><span className="text-slate-400 hover:text-teal-400 transition-colors cursor-pointer">Generative AI</span></li>
-              <li><span className="text-slate-400 hover:text-teal-400 transition-colors cursor-pointer">Data Pipelines</span></li>
-              <li><span className="text-slate-400 hover:text-teal-400 transition-colors cursor-pointer">Full-Stack Dev</span></li>
-              <li><span className="text-slate-400 hover:text-teal-400 transition-colors cursor-pointer">Outsourcing</span></li>
-              <li><span className="text-slate-400 hover:text-teal-400 transition-colors cursor-pointer">Recruitment</span></li>
+              <li><a href="#services" className="text-slate-400 hover:text-teal-400 transition-colors">Data Science</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-teal-400 transition-colors">Generative AI</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-teal-400 transition-colors">Data Pipelines</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-teal-400 transition-colors">Full-Stack Dev</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-teal-400 transition-colors">Outsourcing</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-teal-400 transition-colors">Recruitment</a></li>
             </ul>
           </div>
 
@@ -41,7 +42,7 @@ const Footer = () => {
               <li><a href="#about" className="text-slate-400 hover:text-teal-400 transition-colors">About Us</a></li>
               <li><a href="#team" className="text-slate-400 hover:text-teal-400 transition-colors">Our Team</a></li>
               <li><a href="#contact" className="text-slate-400 hover:text-teal-400 transition-colors">Contact</a></li>
-              <li><span className="text-slate-400 hover:text-teal-400 transition-colors cursor-pointer">Case Studies</span></li>
+              <li><a href="#projects" className="text-slate-400 hover:text-teal-400 transition-colors">Case Studies</a></li>
             </ul>
           </div>
         </div>
