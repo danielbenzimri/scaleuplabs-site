@@ -377,9 +377,28 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
 };
 
 // ─── Lead Capture ─────────────────────────────────────────────────────────────
-const LeadPage = ({ onComplete }: { onComplete: (info: { name: string; email: string }) => void }) => {
+const LeadPage = ({ onComplete }: { onComplete: (info: { name: string; email: string; jobTitle: string; company: string; phone: string }) => void }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [jobTitle, setJobTitle] = useState("");
+    const [company, setCompany] = useState("");
+    const [phone, setPhone] = useState("");
+    const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const isValid = name.trim() && email.trim() && emailValid;
+
+    const errors = {
+        name: touched.name && !name.trim() ? "Name is required" : null,
+        email: touched.email && !email.trim() ? "Email is required" : touched.email && !emailValid ? "Enter a valid email address" : null,
+    };
+
+    const inputClass = (field: string) =>
+        `w-full bg-slate-900/50 border text-white rounded-xl px-4 py-3 focus:outline-none transition-colors ${
+            errors[field as keyof typeof errors]
+                ? "border-red-500 focus:border-red-400"
+                : "border-slate-600 focus:border-teal-500"
+        }`;
 
     return (
         <div className="min-h-screen bg-slate-900 flex items-center justify-center px-6 font-sans">
@@ -391,32 +410,62 @@ const LeadPage = ({ onComplete }: { onComplete: (info: { name: string; email: st
                 <p className="text-slate-400 mb-8 text-sm">
                     Enter your details to generate your scorecard, pillar breakdown, and actionable readiness map.
                 </p>
-                <div className="space-y-4 mb-8">
+                <div className="space-y-4 mb-8 text-left">
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Your Name *"
+                            value={name}
+                            onChange={e => setName(e.target.value)}
+                            onBlur={() => setTouched(t => ({ ...t, name: true }))}
+                            className={inputClass("name")}
+                        />
+                        {errors.name && <p className="text-red-400 text-xs mt-1 pl-1">{errors.name}</p>}
+                    </div>
+                    <div>
+                        <input
+                            type="email"
+                            placeholder="Work Email *"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                            onBlur={() => setTouched(t => ({ ...t, email: true }))}
+                            className={inputClass("email")}
+                        />
+                        {errors.email && <p className="text-red-400 text-xs mt-1 pl-1">{errors.email}</p>}
+                    </div>
                     <input
                         type="text"
-                        placeholder="Your Name"
-                        value={name}
-                        onChange={e => setName(e.target.value)}
-                        className="w-full bg-slate-900/50 border border-slate-600 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500"
+                        placeholder="Job Title"
+                        value={jobTitle}
+                        onChange={e => setJobTitle(e.target.value)}
+                        className="w-full bg-slate-900/50 border border-slate-600 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 transition-colors"
                     />
                     <input
-                        type="email"
-                        placeholder="Work Email"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                        className="w-full bg-slate-900/50 border border-slate-600 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500"
+                        type="text"
+                        placeholder="Company Name"
+                        value={company}
+                        onChange={e => setCompany(e.target.value)}
+                        className="w-full bg-slate-900/50 border border-slate-600 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 transition-colors"
+                    />
+                    <input
+                        type="tel"
+                        placeholder="Phone Number"
+                        value={phone}
+                        onChange={e => setPhone(e.target.value)}
+                        className="w-full bg-slate-900/50 border border-slate-600 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 transition-colors"
                     />
                 </div>
                 <button
-                    disabled={!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)}
-                    onClick={() => onComplete({ name, email })}
-                    className={`w-full py-4 rounded-xl font-bold text-base transition-all ${name && email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? "bg-teal-600 text-white hover:bg-teal-500" : "bg-slate-700 text-slate-500 cursor-not-allowed"
-                        }`}
+                    onClick={() => {
+                        setTouched({ name: true, email: true });
+                        if (isValid) onComplete({ name, email, jobTitle, company, phone });
+                    }}
+                    className={`w-full py-4 rounded-xl font-bold text-base transition-all ${isValid ? "bg-teal-600 text-white hover:bg-teal-500" : "bg-slate-700 text-slate-500 cursor-not-allowed"}`}
                 >
                     View Full Dashboard
                 </button>
             </div>
-        </div >
+        </div>
     );
 };
 
@@ -437,7 +486,7 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                        lead: { name: leadInfo?.name, email: leadInfo?.email },
+                        lead: { name: leadInfo?.name, email: leadInfo?.email, jobTitle: leadInfo?.jobTitle, company: leadInfo?.company, phone: leadInfo?.phone },
                         scores: pillarScores,
                         totalScore,
                         answers: formData,

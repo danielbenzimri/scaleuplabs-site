@@ -79,9 +79,12 @@ export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) 
       html: `
 <div style="font-family:monospace;font-size:13px;padding:24px;">
   <strong>New audit submission received</strong><br/><br/>
-  <b>Name:</b>  ${lead.name}<br/>
-  <b>Email:</b> ${lead.email}<br/>
-  <b>Score:</b> ${totalScore}/100
+  <b>Name:</b>      ${lead.name}<br/>
+  <b>Email:</b>     ${lead.email}<br/>
+  <b>Job Title:</b> ${lead.jobTitle || "—"}<br/>
+  <b>Company:</b>   ${lead.company || "—"}<br/>
+  <b>Phone:</b>     ${lead.phone || "—"}<br/>
+  <b>Score:</b>     ${totalScore}/100
 </div>`,
     });
   }
