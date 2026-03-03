@@ -69,9 +69,14 @@ async function runPostSubmitPipeline({ submissionId, submissionDate, lead, score
     const hasZoho = !!(process.env.ZOHO_EMAIL && process.env.ZOHO_PASSWORD);
     const isValidEmail = (e) => typeof e === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
-    // 3a. Generate PDF buffer
+    // 3a. Generate PDF buffer (non-fatal — email still sends if PDF fails)
     console.log(`[${submissionId}] Generating PDF…`);
-    const pdfBuffer = await generatePdf({ lead, totalScore, pillarScores: scores, summary, submissionDate });
+    let pdfBuffer = null;
+    try {
+        pdfBuffer = await generatePdf({ lead, totalScore, pillarScores: scores, summary, submissionDate });
+    } catch (pdfErr) {
+        console.warn(`[${submissionId}] ⚠️  PDF generation failed (skipping attachment): ${pdfErr.message}`);
+    }
 
     // 3b. Write lead + submission to Google Sheets
     console.log(`[${submissionId}] Writing to Google Sheets…`);
