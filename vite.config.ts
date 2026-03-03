@@ -9,8 +9,8 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     proxy: {
-      "/api": {
-        target: "http://localhost:3001",
+      "/api/audit": {
+        target: "http://localhost:3002",
         changeOrigin: true,
       },
     },

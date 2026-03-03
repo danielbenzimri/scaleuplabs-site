@@ -408,9 +408,9 @@ const LeadPage = ({ onComplete }: { onComplete: (info: { name: string; email: st
                     />
                 </div>
                 <button
-                    disabled={!name || !email}
+                    disabled={!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)}
                     onClick={() => onComplete({ name, email })}
-                    className={`w-full py-4 rounded-xl font-bold text-base transition-all ${name && email ? "bg-teal-600 text-white hover:bg-teal-500" : "bg-slate-700 text-slate-500 cursor-not-allowed"
+                    className={`w-full py-4 rounded-xl font-bold text-base transition-all ${name && email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? "bg-teal-600 text-white hover:bg-teal-500" : "bg-slate-700 text-slate-500 cursor-not-allowed"
                         }`}
                 >
                     View Full Dashboard
@@ -432,10 +432,16 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
             setLlmLoading(true);
             setLlmError(null);
             try {
-                const res = await fetch("/api/generate-summary", {
+                const apiUrl = import.meta.env.VITE_API_URL || "";
+                const res = await fetch(`${apiUrl}/api/audit/submit`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ pillarScores, totalScore }),
+                    body: JSON.stringify({
+                        lead: { name: leadInfo?.name, email: leadInfo?.email },
+                        scores: pillarScores,
+                        totalScore,
+                        answers: formData,
+                    }),
                 });
                 if (!res.ok) throw new Error(`API error ${res.status}`);
                 const data = await res.json();
@@ -529,8 +535,8 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                                 <div className="w-2 h-2 rounded-full bg-teal-500"></div>
                                                 <span className="text-sm font-bold text-slate-700 uppercase tracking-wider">Integration Readiness</span>
                                             </div>
-                                            <div className={`flex flex-col items-end px-4 py-2 rounded-xl border ${isGroupStrong ? "bg-cyan-50 border-cyan-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-teal-50 border-teal-200"}`}>
-                                                <span className={`text-2xl font-black leading-none ${isGroupStrong ? "text-cyan-700" : isGroupWeak ? "text-red-700" : "text-teal-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
+                                            <div className={`flex flex-col items-end px-3 py-1.5 rounded-lg border ${isGroupStrong ? "bg-cyan-50 border-cyan-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-teal-50 border-teal-200"}`}>
+                                                <span className={`text-base font-black leading-none ${isGroupStrong ? "text-cyan-700" : isGroupWeak ? "text-red-700" : "text-teal-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
                                                 <span className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${isGroupStrong ? "text-cyan-500" : isGroupWeak ? "text-red-400" : "text-teal-400"}`}>Group Score</span>
                                             </div>
                                         </div>
@@ -579,8 +585,8 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                                 <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
                                                 <span className="text-sm font-bold text-slate-700 uppercase tracking-wider">Leverage Audit</span>
                                             </div>
-                                            <div className={`flex flex-col items-end px-4 py-2 rounded-xl border ${isGroupStrong ? "bg-cyan-50 border-cyan-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-teal-50 border-teal-200"}`}>
-                                                <span className={`text-2xl font-black leading-none ${isGroupStrong ? "text-cyan-700" : isGroupWeak ? "text-red-700" : "text-teal-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
+                                            <div className={`flex flex-col items-end px-3 py-1.5 rounded-lg border ${isGroupStrong ? "bg-cyan-50 border-cyan-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-teal-50 border-teal-200"}`}>
+                                                <span className={`text-base font-black leading-none ${isGroupStrong ? "text-cyan-700" : isGroupWeak ? "text-red-700" : "text-teal-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
                                                 <span className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${isGroupStrong ? "text-cyan-500" : isGroupWeak ? "text-red-400" : "text-teal-400"}`}>Group Score</span>
                                             </div>
                                         </div>
