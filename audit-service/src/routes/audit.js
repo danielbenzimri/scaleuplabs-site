@@ -66,7 +66,7 @@ router.post("/submit", async (req, res) => {
  * 3. Send emails with PDF attached
  */
 async function runPostSubmitPipeline({ submissionId, submissionDate, lead, scores, totalScore, answers, summary }) {
-    const hasZoho = !!(process.env.ZOHO_EMAIL && process.env.ZOHO_PASSWORD);
+    const hasResend = !!(process.env.RESEND_API_KEY);
     const isValidEmail = (e) => typeof e === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
     // 3a. Generate PDF buffer (non-fatal — email still sends if PDF fails)
@@ -90,8 +90,8 @@ async function runPostSubmitPipeline({ submissionId, submissionDate, lead, score
     });
 
     // 3c. Send emails with PDF attached
-    if (!hasZoho) {
-        console.warn(`[${submissionId}] ⚠️  Zoho email not configured — skipping email.`);
+    if (!hasResend) {
+        console.warn(`[${submissionId}] ⚠️  RESEND_API_KEY not configured — skipping email.`);
     } else if (!isValidEmail(lead.email)) {
         console.warn(`[${submissionId}] ⚠️  Invalid lead email "${lead.email}" — skipping email.`);
     } else {

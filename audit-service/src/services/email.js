@@ -1,41 +1,28 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-function createTransporter() {
-  return nodemailer.createTransport({
-    host: "smtp.zoho.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.ZOHO_EMAIL,
-      pass: process.env.ZOHO_PASSWORD,
-    },
-  });
-}
+const resend = new Resend(process.env.RESEND_API_KEY);
+const FROM = process.env.SENDER_EMAIL || "ScaleUp Labs <info@scaleuplabs.dev>";
 
 /**
  * Send the audit report to the user (PDF attached) and notify the internal team.
  *
- * @param {{ name: string, email: string }} lead
+ * @param {{ name: string, email: string, jobTitle?: string, company?: string, phone?: string }} lead
  * @param {number}  totalScore
  * @param {Buffer}  pdfBuffer   - Raw PDF bytes, attached to the user email
  * @param {string}  concise     - One-paragraph executive summary
  */
 export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) {
-  const transporter = createTransporter();
-  const FROM = process.env.SENDER_EMAIL || `ScaleUp Labs <${process.env.ZOHO_EMAIL}>`;
-
   // ── 1. Email to the user (with PDF attached) ───────────────────────────────
   if (!lead?.email) {
     console.warn("[Email] No lead email — skipping user report email.");
   } else {
-    await transporter.sendMail({
+    await resend.emails.send({
       from: FROM,
       to: lead.email,
       subject: `Your AI Readiness Audit Report — Score: ${totalScore}/100`,
       attachments: pdfBuffer ? [{
         filename: "ScaleUpLabs-AI-Readiness-Report.pdf",
         content: pdfBuffer,
-        contentType: "application/pdf",
       }] : [],
       html: `<!DOCTYPE html>
 <html lang="en">
@@ -72,7 +59,7 @@ export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) 
 
   // ── 2. Internal lead notification ──────────────────────────────────────────
   if (process.env.INTERNAL_NOTIFY_EMAIL) {
-    await transporter.sendMail({
+    await resend.emails.send({
       from: FROM,
       to: process.env.INTERNAL_NOTIFY_EMAIL,
       subject: `🔔 New Audit Submission — ${lead.name} (${totalScore}/100)`,
