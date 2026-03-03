@@ -1,24 +1,24 @@
-FROM ghcr.io/puppeteer/puppeteer:latest
+FROM node:20-bullseye-slim
 
-# Switch to root to install and copy files
-USER root
+# Install Chrome
+RUN apt-get update && apt-get install -y \
+    wget gnupg ca-certificates \
+    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
+    && apt-get update \
+    && apt-get install -y google-chrome-stable --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Install dependencies first (helps with caching)
 COPY package*.json ./
-RUN npm install
+RUN npm ci --omit=dev
 
-# Copy the rest of the app
 COPY . .
 
-# Environment variables
-ENV PORT=3002
-# Ensure Puppeteer knows to run without a sandbox in Docker
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
 
-EXPOSE 3002
+EXPOSE 8080
 
-# The default command to start the server
 CMD ["npm", "start"]
