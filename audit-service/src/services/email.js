@@ -3,20 +3,20 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM = process.env.SENDER_EMAIL || "ScaleUp Labs <info@scaleuplabs.dev>";
 
+async function send(payload) {
+  const { error } = await resend.emails.send(payload);
+  if (error) throw new Error(`[Resend] ${error.message}`);
+}
+
 /**
  * Send the audit report to the user (PDF attached) and notify the internal team.
- *
- * @param {{ name: string, email: string, jobTitle?: string, company?: string, phone?: string }} lead
- * @param {number}  totalScore
- * @param {Buffer}  pdfBuffer   - Raw PDF bytes, attached to the user email
- * @param {string}  concise     - One-paragraph executive summary
  */
 export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) {
-  // ── 1. Email to the user (with PDF attached) ───────────────────────────────
+  // ── 1. Email to the user ───────────────────────────────────────────────────
   if (!lead?.email) {
     console.warn("[Email] No lead email — skipping user report email.");
   } else {
-    await resend.emails.send({
+    await send({
       from: FROM,
       to: lead.email,
       subject: `Your AI Readiness Audit Report — Score: ${totalScore}/100`,
@@ -55,11 +55,12 @@ export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) 
 </body>
 </html>`,
     });
+    console.log(`[Email] ✅ Report sent to ${lead.email}`);
   }
 
   // ── 2. Internal lead notification ──────────────────────────────────────────
   if (process.env.INTERNAL_NOTIFY_EMAIL) {
-    await resend.emails.send({
+    await send({
       from: FROM,
       to: process.env.INTERNAL_NOTIFY_EMAIL,
       subject: `🔔 New Audit Submission — ${lead.name} (${totalScore}/100)`,
@@ -74,5 +75,6 @@ export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) 
   <b>Score:</b>     ${totalScore}/100
 </div>`,
     });
+    console.log(`[Email] ✅ Internal notification sent to ${process.env.INTERNAL_NOTIFY_EMAIL}`);
   }
 }
