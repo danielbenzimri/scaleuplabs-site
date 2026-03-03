@@ -13,7 +13,14 @@ export async function generatePdf(params) {
     const browser = await puppeteer.launch({
         headless: "new",
         executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
-        args: ["--no-sandbox", "--disable-setuid-sandbox"], // required for deployment envs
+        args: [
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--disable-dev-shm-usage", // required in Docker (small /dev/shm)
+            "--disable-gpu",
+            "--no-first-run",
+            "--no-zygote",
+        ],
     });
 
     try {
