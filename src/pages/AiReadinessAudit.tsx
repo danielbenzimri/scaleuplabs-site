@@ -42,7 +42,7 @@ const PILLARS = [
         weight: 0.25,
         questions: [
             { id: "q3_1", weight: 0.30, label: "Repetitive Analytical Workload", desc: "Is there high-volume, repeatable text or data analysis performed by teams?", tooltip: "Do your employees spend a lot of time reading data and doing the same analysis over and over?" },
-            { id: "q3_2", weight: 0.20, label: "Knowledge Processing Intensity", desc: "Do teams routinely process contracts, reports, compliance documents, or technical docs?", tooltip: "Is your team constantly having to manually read and extract information from large documents or contracts?" },
+            { id: "q3_2", weight: 0.20, label: "Knowledge Processing Intensity", desc: "Do teams routinely process contracts, reports, compliance documents, or technical docs?", tooltip: "High volumes of manual reading and data entry are prime targets for Document AI and intelligent extraction." },
             { id: "q3_3", weight: 0.20, label: "Decision Pattern Repeatability", desc: "Are operational decisions driven by recurring patterns that can be formalized?", tooltip: "When your team makes a decision, is it usually the exact same logical steps every time?" },
             { id: "q3_4", weight: 0.15, label: "Knowledge Concentration Risk", desc: "Is institutional knowledge concentrated within limited senior personnel?", tooltip: "If one specific senior employee left tomorrow, would the company lose critical operational knowledge?" },
             { id: "q3_5", weight: 0.15, label: "Customer Interaction Scalability", desc: "Is customer support, onboarding, or sales assistance resource-intensive and text-heavy?", tooltip: "Is your customer facing team overwhelmed with answering the same text-heavy questions all day?" },
@@ -129,10 +129,13 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
         <main className="flex-1 flex flex-col items-center justify-center py-8 px-6">
             <header className="max-w-3xl w-full text-center mb-10">
                 <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 leading-tight">
-                    AI Integration Readiness & <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Leverage Audit™</span>
+                    Are You Really Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Leverage AI?</span>
                 </h1>
-                <p className="text-base md:text-lg text-slate-400 mb-6 max-w-2xl mx-auto">
-                    High-Authority Diagnostic Framework for Technology-Driven Companies. Stop guessing if you're ready for AI—measure your structural maturity and economic leverage.
+                <p className="text-base md:text-lg text-slate-300 mb-2 max-w-2xl mx-auto font-semibold">
+                    Free 5-minute assessment from a proven AI expert.
+                </p>
+                <p className="text-sm md:text-base text-slate-400 mb-6 max-w-2xl mx-auto">
+                    Stop guessing if you're ready — measure your structural maturity and economic leverage with our AI Integration Readiness Audit™.
                 </p>
 
                 <button
@@ -394,10 +397,9 @@ const LeadPage = ({ onComplete }: { onComplete: (info: { name: string; email: st
     };
 
     const inputClass = (field: string) =>
-        `w-full bg-slate-900/50 border text-white rounded-xl px-4 py-3 focus:outline-none transition-colors ${
-            errors[field as keyof typeof errors]
-                ? "border-red-500 focus:border-red-400"
-                : "border-slate-600 focus:border-teal-500"
+        `w-full bg-slate-900/50 border text-white rounded-xl px-4 py-3 focus:outline-none transition-colors ${errors[field as keyof typeof errors]
+            ? "border-red-500 focus:border-red-400"
+            : "border-slate-600 focus:border-teal-500"
         }`;
 
     return (
