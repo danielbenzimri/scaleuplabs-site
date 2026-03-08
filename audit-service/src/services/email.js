@@ -1,7 +1,10 @@
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const FROM = process.env.SENDER_EMAIL || "ScaleUp Labs <info@scaleuplabs.dev>";
+const isDev = process.env.NODE_ENV !== "production";
+const FROM = isDev
+  ? "onboarding@resend.dev"
+  : (process.env.SENDER_EMAIL || "ScaleUp Labs <info@scaleuplabs.dev>");
 
 async function send(payload) {
   const { error } = await resend.emails.send(payload);

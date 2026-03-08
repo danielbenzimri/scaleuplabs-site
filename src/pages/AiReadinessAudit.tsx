@@ -11,77 +11,77 @@ type AppState = "landing" | "form" | "lead" | "results";
 const PILLARS = [
     {
         id: "p1",
-        title: "1. Data Architecture Readiness",
+        title: "1. Your Data Foundation",
         explanation: "Measures whether your data infrastructure is structurally capable of supporting reliable, production-grade AI deployment.",
         weight: 0.25,
         questions: [
-            { id: "q1_1", weight: 0.25, label: "Data Infrastructure Maturity", desc: "Is operational data consolidated in a warehouse/lake with governed access and defined ownership?", tooltip: "Is all your company's data stored in one secure, organized place rather than scattered across random spreadsheets and apps?" },
-            { id: "q1_2", weight: 0.20, label: "Schema Consistency & Entity Resolution", desc: "Are core entities (users, accounts, transactions) consistently modeled across systems?", tooltip: "Does a 'customer' look the exact same in your billing system, CRM, and support software?" },
-            { id: "q1_3", weight: 0.20, label: "Unstructured Data Indexing", desc: "Are documents, logs, tickets, and knowledge assets indexed and programmatically retrievable?", tooltip: "Can a computer instantly search and pull up your PDFs, chat logs, and internal documents?" },
-            { id: "q1_4", weight: 0.20, label: "Historical Depth & Lineage", desc: "Is multi-year historical data available with traceable lineage and transformation transparency?", tooltip: "Do you have years of clean data, and do you know exactly where it came from and how it was edited?" },
-            { id: "q1_5", weight: 0.15, label: "Governance & Change Management", desc: "Are schema updates version-controlled and communicated across dependent systems?", tooltip: "If a developer changes a database rule, is there a system to make sure it doesn't break other tools?" },
+            { id: "q1_1", weight: 0.25, label: "Centralized Data Storage", desc: "Is all your data stored in one organized, secure place — rather than scattered across spreadsheets and different apps?", tooltip: "Think of it as: do you have one 'single source of truth' for your data, or is it all over the place?", elaborate: "A centralized data warehouse or data lake with role-based access controls and clear data ownership — so AI models can reliably access clean, consistent data." },
+            { id: "q1_2", weight: 0.20, label: "Consistent Data Across Tools", desc: "Does the same information (like a customer's name or ID) look the same across all your tools and systems?", tooltip: "For example, is a 'customer' defined the same way in your invoicing tool, your support desk, and your database?", elaborate: "Schema consistency and entity resolution — ensuring the same real-world object (a customer, a product) is modeled identically across all integrated systems." },
+            { id: "q1_3", weight: 0.20, label: "Searchable Documents & Files", desc: "Can you instantly search through your documents, emails, and internal files to find what you need?", tooltip: "If someone asks 'find all contracts from 2022', can a system pull them up in seconds — or does someone have to dig through folders manually?", elaborate: "Unstructured data indexing using full-text search or vector embeddings — enabling programmatic retrieval of documents, logs, and knowledge assets at scale." },
+            { id: "q1_4", weight: 0.20, label: "Reliable Historical Data", desc: "Do you have years of clean historical data, and can you trace where it came from and how it changed over time?", tooltip: "Old, reliable data is fuel for AI. Do you know where your data comes from and can you trust it?", elaborate: "Multi-year historical data with traceable data lineage — knowing exactly where data originated and how it was transformed, which is critical for training and auditing AI models." },
+            { id: "q1_5", weight: 0.15, label: "Safe Data Updates", desc: "When someone changes how data is structured, is there a process to make sure nothing else breaks?", tooltip: "If a developer updates a database field, is there a system to notify other teams so their tools don't stop working?", elaborate: "Schema version control and change management — a structured process for evolving data structures without breaking the systems and pipelines that depend on them." },
         ]
     },
     {
         id: "p2",
-        title: "2. Workflow & Automation Maturity",
+        title: "2. How Automated Are Your Workflows",
         explanation: "Evaluates how well-defined, automated, and integration-ready your operational workflows are for AI augmentation.",
         weight: 0.20,
         questions: [
-            { id: "q2_1", weight: 0.30, label: "Core Workflow Automation", desc: "What percentage of high-frequency operational workflows are automated end-to-end?", tooltip: "How many of the boring, repetitive tasks your team does every day run completely on autopilot?" },
-            { id: "q2_2", weight: 0.20, label: "Cognitive Task Standardization", desc: "Are decision-heavy workflows standardized with defined inputs, outputs, and rules?", tooltip: "Do your employees follow a strict, documented rulebook to make decisions, or is it based on 'gut feeling'?" },
-            { id: "q2_3", weight: 0.20, label: "API & Integration Surface Area", desc: "Do core platforms expose stable APIs/webhooks enabling orchestration?", tooltip: "Can your software literally 'talk' to other software systems directly?" },
-            { id: "q2_4", weight: 0.15, label: "Process Observability", desc: "Are workflow failures logged, traceable, and monitored?", tooltip: "When an automated task breaks, do you get an instant alert explaining exactly why it failed?" },
-            { id: "q2_5", weight: 0.15, label: "Operational Bottleneck Analysis", desc: "Are manual review stages formally measured and optimized?", tooltip: "Do you analyze where your human employees are slowing down the process the most?" },
+            { id: "q2_1", weight: 0.30, label: "Automated Repetitive Tasks", desc: "How much of your day-to-day operations runs on autopilot — without anyone needing to manually trigger or complete steps?", tooltip: "For example: does a new order automatically generate an invoice and notify your team — or does someone have to do each step manually?", elaborate: "End-to-end workflow automation coverage — the percentage of high-frequency operational processes that execute without human intervention, from trigger to completion." },
+            { id: "q2_2", weight: 0.20, label: "Documented Decision Processes", desc: "Do your team's decisions follow a clear, documented process — or does each person handle it their own way?", tooltip: "For example: when handling a complaint or approving a request, is there a written process everyone follows — or does it depend on who's handling it?", elaborate: "Cognitive task standardization — decision-heavy workflows documented with defined inputs, outputs, and explicit business rules, making them reproducible and automatable." },
+            { id: "q2_3", weight: 0.20, label: "Tools That Talk to Each Other", desc: "Can your tools and systems connect and share data with each other automatically?", tooltip: "For example, when a form is submitted, can it automatically update your database and send a notification — without anyone copy-pasting?", elaborate: "API and webhook integration surface — the extent to which your core platforms expose stable interfaces that allow systems to exchange data and trigger actions automatically." },
+            { id: "q2_4", weight: 0.15, label: "Instant Failure Alerts", desc: "When an automated process fails, does your team get notified right away with details about what went wrong?", tooltip: "Or do you only find out something broke when a customer complains?", elaborate: "Process observability — real-time logging and monitoring of automated workflows, with structured alerting so failures are detected and diagnosed before they impact users." },
+            { id: "q2_5", weight: 0.15, label: "Tracking Where Time Is Lost", desc: "Do you actively track where your team spends the most manual effort — and work to reduce it?", tooltip: "Do you know which step in your process slows everything down, and are you actively trying to fix it?", elaborate: "Operational bottleneck analysis — formally measuring cycle times and manual touchpoints across workflows to identify and prioritize automation opportunities." },
         ]
     },
     {
         id: "p3",
-        title: "3. AI Leverage Opportunity Density",
+        title: "3. Where AI Can Help You Most",
         explanation: "Assesses the volume and repeatability of cognitive work where AI can create measurable efficiency gains.",
         weight: 0.25,
         questions: [
-            { id: "q3_1", weight: 0.30, label: "Repetitive Analytical Workload", desc: "Is there high-volume, repeatable text or data analysis performed by teams?", tooltip: "Do your employees spend a lot of time reading data and doing the same analysis over and over?" },
-            { id: "q3_2", weight: 0.20, label: "Knowledge Processing Intensity", desc: "Do teams routinely process contracts, reports, compliance documents, or technical docs?", tooltip: "High volumes of manual reading and data entry are prime targets for Document AI and intelligent extraction." },
-            { id: "q3_3", weight: 0.20, label: "Decision Pattern Repeatability", desc: "Are operational decisions driven by recurring patterns that can be formalized?", tooltip: "When your team makes a decision, is it usually the exact same logical steps every time?" },
-            { id: "q3_4", weight: 0.15, label: "Knowledge Concentration Risk", desc: "Is institutional knowledge concentrated within limited senior personnel?", tooltip: "If one specific senior employee left tomorrow, would the company lose critical operational knowledge?" },
-            { id: "q3_5", weight: 0.15, label: "Customer Interaction Scalability", desc: "Is customer support, onboarding, or sales assistance resource-intensive and text-heavy?", tooltip: "Is your customer facing team overwhelmed with answering the same text-heavy questions all day?" },
+            { id: "q3_1", weight: 0.30, label: "Repeated Analysis by Your Team", desc: "Does your team spend significant time doing the same type of analysis or data review repeatedly?", tooltip: "For example: reading reports, categorizing data, or summarizing information — the same way, every day?", elaborate: "High-volume, repeatable analytical workloads — structured tasks like data categorization, summarization, or pattern recognition performed repeatedly by humans, making them strong candidates for AI augmentation." },
+            { id: "q3_2", weight: 0.20, label: "Heavy Document & Report Reading", desc: "Does your team regularly read and process large amounts of documents, reports, or written content?", tooltip: "Things like contracts, forms, compliance documents, or technical manuals — where humans spend hours extracting key information?", elaborate: "Knowledge processing intensity — the volume of unstructured content (contracts, reports, forms) your team manually reviews, extractable by Document AI and intelligent OCR pipelines." },
+            { id: "q3_3", weight: 0.20, label: "Predictable Decision-Making", desc: "Do your team's day-to-day decisions follow predictable, repeatable logic most of the time?", tooltip: "If the same situation comes up 100 times, do people handle it the same way — or does it vary every time?", elaborate: "Decision pattern repeatability — when decisions consistently follow the same logical steps based on defined inputs, they can be formalized into business rules or used to train machine learning models." },
+            { id: "q3_4", weight: 0.15, label: "Knowledge Trapped in Key People", desc: "Is critical know-how locked in the heads of a few key people — and not written down anywhere?", tooltip: "If a senior person left tomorrow, would important processes or knowledge disappear with them?", elaborate: "Institutional knowledge concentration risk — undocumented operational logic held by a small number of individuals, creating single points of failure and blocking AI knowledge base development." },
+            { id: "q3_5", weight: 0.15, label: "Overloaded Customer-Facing Team", desc: "Is your team handling a high volume of repetitive customer questions, onboarding, or support requests?", tooltip: "Are your people overwhelmed answering the same questions over and over — and struggling to keep up as you grow?", elaborate: "Customer interaction scalability constraints — high-volume, text-heavy support and onboarding workflows that don't scale with headcount, making them strong targets for conversational AI and automation." },
         ]
     },
     {
         id: "p4",
-        title: "4. Systems Integration & Architecture",
+        title: "4. How Well Your Systems Connect",
         explanation: "Determines whether your systems architecture can reliably integrate, orchestrate, and scale AI-driven processes.",
         weight: 0.20,
         questions: [
-            { id: "q4_1", weight: 0.30, label: "Cross-System Data Synchronization", desc: "Are CRM, ERP, product systems, billing, and analytics consistently synchronized?", tooltip: "If a customer updates their address in your CRM, does it instantly update in your billing system too?" },
-            { id: "q4_2", weight: 0.20, label: "Event-Driven Capability", desc: "Do systems emit events that can trigger downstream automation reliably?", tooltip: "When X happens, does your system automatically trigger Y to happen without human input?" },
-            { id: "q4_3", weight: 0.20, label: "Pipeline Reliability & Monitoring", desc: "Are ETL/ELT pipelines monitored with defined SLAs and alerting?", tooltip: "Do you have alarms set up if data magically stops flowing between your databases?" },
-            { id: "q4_4", weight: 0.15, label: "Centralized Logging & Telemetry", desc: "Are logs aggregated and queryable for operational intelligence use cases?", tooltip: "If something breaks, are all the system logs in one easy place so engineers can figure out what went wrong?" },
-            { id: "q4_5", weight: 0.15, label: "Release Stability & Dependency Control", desc: "Can system updates occur without breaking integration contracts?", tooltip: "Can you update one piece of software without accidentally bringing down the entire company's network?" },
+            { id: "q4_1", weight: 0.30, label: "Data Stays in Sync Across Tools", desc: "When data is updated in one tool, does it automatically update in all the other tools that depend on it?", tooltip: "For example: if you change a record in one place, does it instantly reflect everywhere else — or does someone have to manually update each system?", elaborate: "Cross-system data synchronization — automated data consistency across platforms using event-driven triggers or scheduled ETL/ELT pipelines, so every system always reflects the latest state." },
+            { id: "q4_2", weight: 0.20, label: "Automatic Actions on Triggers", desc: "Can your systems automatically kick off actions when something happens — without a person having to press a button?", tooltip: "For example: a new sign-up triggers a welcome email, a payment triggers an invoice — all on their own?", elaborate: "Event-driven architecture — systems that publish and respond to real-time events (e.g. webhooks, message queues), enabling reliable downstream automation without manual intervention." },
+            { id: "q4_3", weight: 0.20, label: "Alerts When Data Stops Flowing", desc: "Do you get alerted if data stops flowing between your systems — before it causes a problem?", tooltip: "If your nightly data sync quietly fails, would anyone know? Or would you only find out days later when reports are wrong?", elaborate: "Data pipeline reliability monitoring — ETL/ELT pipelines tracked against defined SLAs, with automated alerting when data transfers fail or fall behind schedule." },
+            { id: "q4_4", weight: 0.15, label: "Easy Diagnosis When Things Break", desc: "When something goes wrong in your systems, can your team quickly find out what happened and why?", tooltip: "Are all error logs and system activity recorded in one place — making it easy to diagnose issues fast?", elaborate: "Centralized log aggregation and telemetry — all system events and errors collected in one queryable location, enabling fast root cause analysis and operational intelligence." },
+            { id: "q4_5", weight: 0.15, label: "Safe System Updates", desc: "Can your team update or release one part of the system without breaking everything else?", tooltip: "Or does every software update carry the risk of taking down other tools that depend on it?", elaborate: "Release stability and dependency management — a disciplined deployment process with versioned APIs and integration contracts, so changes in one service don't cascade and break dependent systems." },
         ]
     },
     {
         id: "p5",
-        title: "5. Economic Leverage & Strategic Impact",
+        title: "5. The Business Case for AI",
         explanation: "Quantifies whether AI adoption would produce meaningful financial, scalability, and margin impact.",
         weight: 0.10,
         questions: [
-            { id: "q5_1", weight: 0.30, label: "Labor Cost Concentration", desc: "Are significant payroll resources allocated to repetitive operational functions?", tooltip: "Are you paying humans high salaries to do boring, repetitive clicking and typing?" },
-            { id: "q5_2", weight: 0.20, label: "Error & Compliance Risk Exposure", desc: "Do human errors create financial, regulatory, or reputational exposure?", tooltip: "If a human makes a typo, could it result in a huge fine or embarrassing customer problem?" },
-            { id: "q5_3", weight: 0.20, label: "Scaling Cost Sensitivity", desc: "Does revenue growth require proportional operational headcount growth?", tooltip: "If you get 10x more customers next month, do you have to hire 10x more employees to handle them?" },
-            { id: "q5_4", weight: 0.15, label: "Cycle-Time Revenue Impact", desc: "Do delays in workflows materially impact revenue realization?", tooltip: "If a task takes too long, does it literally stop you from making money that day?" },
-            { id: "q5_5", weight: 0.15, label: "Margin Optimization Pressure", desc: "Is efficiency improvement strategically necessary to maintain competitive margins?", tooltip: "Are your competitors using automation to lower their prices so much that you have to adapt to survive?" },
+            { id: "q5_1", weight: 0.30, label: "Staff Time Spent on Manual Work", desc: "Are a large portion of your staff hours spent on repetitive, manual tasks that don't require human judgment?", tooltip: "Are you paying people to do work that a machine could handle — like data entry, copy-pasting, or routine approvals?", elaborate: "Labor cost concentration — a high share of payroll allocated to low-complexity, repeatable tasks that have high automation substitution potential, representing direct cost savings from AI deployment." },
+            { id: "q5_2", weight: 0.20, label: "Risk of Costly Human Mistakes", desc: "Could a simple human mistake in your operations lead to financial loss, regulatory issues, or damage to your reputation?", tooltip: "For example: a wrong number entered manually could trigger a compliance violation or an embarrassing customer error.", elaborate: "Error and compliance risk exposure — the degree to which manual data entry or human judgment creates financial, regulatory, or reputational liability that automated validation and AI checks could eliminate." },
+            { id: "q5_3", weight: 0.20, label: "Growth Requires More Hiring", desc: "When your business grows, do your operational costs grow at the same rate — forcing you to keep hiring?", tooltip: "If you doubled your customers tomorrow, would you also need to double your team to keep up?", elaborate: "Linear operational scaling sensitivity — when revenue growth requires proportional headcount growth, it signals manual process bottlenecks that AI and automation can decouple, enabling non-linear scale." },
+            { id: "q5_4", weight: 0.15, label: "Slow Processes Delay Revenue", desc: "Does slow turnaround in your processes directly delay when you can collect payment or close deals?", tooltip: "For example: if approvals or fulfillment take too long, does it hold up your revenue?", elaborate: "Cycle-time revenue impact — workflow latency (slow approvals, fulfillment delays, manual handoffs) that directly defers revenue recognition, where AI-driven process acceleration has measurable financial ROI." },
+            { id: "q5_5", weight: 0.15, label: "Efficiency Is a Competitive Must", desc: "Is becoming more efficient a competitive necessity — not just a nice-to-have?", tooltip: "Are rivals cutting costs through automation, forcing you to do the same just to stay competitive on price?", elaborate: "Margin optimization pressure — competitive dynamics forcing operational efficiency improvements to maintain unit economics, where AI adoption is a strategic necessity rather than an optional enhancement." },
         ]
     },
 ];
 
 const MATURITY_LEVELS = [
-    { value: 1, label: "Low Maturity / Undefined" },
-    { value: 2, label: "Emerging / Ad-hoc" },
-    { value: 3, label: "Defined / Developing" },
-    { value: 4, label: "Managed / Significant" },
-    { value: 5, label: "Advanced / Optimized" },
+    { value: 1, label: "Not in place" },
+    { value: 2, label: "Just getting started" },
+    { value: 3, label: "Partially in place" },
+    { value: 4, label: "Mostly in place" },
+    { value: 5, label: "Fully in place" },
 ];
 
 function calculateScores(data: FormData) {
@@ -132,18 +132,28 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
                     Are You Really Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Leverage AI?</span>
                 </h1>
                 <p className="text-base md:text-lg text-slate-300 mb-2 max-w-2xl mx-auto font-semibold">
-                    Free 5-minute assessment from a proven AI expert.
+                    Free 5-minute assessment from an AI expert.
                 </p>
                 <p className="text-sm md:text-base text-slate-400 mb-6 max-w-2xl mx-auto">
-                    Stop guessing if you're ready — measure your structural maturity and economic leverage with our AI Integration Readiness Audit™.
+                    Measure your structural maturity and economic leverage with our AI Integration Readiness Audit™.
                 </p>
 
-                <button
-                    onClick={onStart}
-                    className="bg-teal-600 hover:bg-teal-500 text-white font-bold text-lg px-8 py-3.5 rounded-xl shadow-lg shadow-teal-900/40 transition-all hover:-translate-y-1 hover:shadow-teal-900/60"
-                >
-                    Start the Diagnostic Board
-                </button>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <button
+                        onClick={onStart}
+                        className="bg-teal-600 hover:bg-teal-500 text-white font-bold text-lg px-8 py-3.5 rounded-xl shadow-lg shadow-teal-900/40 transition-all hover:-translate-y-1 hover:shadow-teal-900/60"
+                    >
+                        Start Free Assessment
+                    </button>
+                    <a
+                        href="https://www.cal.eu/scaleuplabs/30min?user=scaleuplabs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="border border-teal-600 text-teal-400 hover:bg-teal-900/30 font-bold text-lg px-8 py-3.5 rounded-xl transition-all hover:-translate-y-1"
+                    >
+                        Book a Free Consultation
+                    </a>
+                </div>
                 <p className="text-xs text-slate-500 mt-4">Takes ~5 minutes. Requires technical architecture knowledge.</p>
             </header>
 
@@ -157,13 +167,13 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
                         <div className="absolute bottom-[-20%] left-[-10%] w-72 h-72 bg-teal-500/8 blur-[90px] rounded-full pointer-events-none"></div>
 
                         <p className="text-[10px] font-bold tracking-widest uppercase text-slate-500 mb-3">Framework</p>
-                        <h3 className="text-lg font-bold text-white mb-6">What We Measure</h3>
+                        <h3 className="text-2xl font-bold text-white mb-6">What We Measure</h3>
 
                         {/* Integration Readiness group */}
                         <div className="mb-4">
                             <div className="flex items-center gap-1.5 mb-3">
                                 <div className="w-1.5 h-1.5 bg-teal-400 rounded-full"></div>
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-teal-400">Integration Readiness</span>
+                                <span className="text-sm font-bold uppercase tracking-widest text-teal-400">Integration Readiness</span>
                             </div>
                             <div className="space-y-3 pl-1">
                                 {[
@@ -189,7 +199,7 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => (
                         <div>
                             <div className="flex items-center gap-1.5 mb-3">
                                 <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></div>
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-cyan-400">Leverage Audit</span>
+                                <span className="text-sm font-bold uppercase tracking-widest text-cyan-400">Leverage Audit</span>
                             </div>
                             <div className="space-y-3 pl-1">
                                 {[
@@ -325,13 +335,25 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
                                 <div key={q.id} className={`${i < pillar.questions.length - 1 ? "mb-5 pb-5 border-b border-slate-100" : ""}`}>
                                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-8">
                                         <div className="flex-1">
-                                            <div className="group inline-flex items-center gap-2 mb-1 relative cursor-help">
+                                            <div className="inline-flex items-center gap-2 mb-1">
                                                 <h3 className="text-base font-bold text-slate-800 border-b border-dashed border-slate-300 pb-[1px]">{q.label}</h3>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400 group-hover:text-teal-500 transition-colors"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
-                                                <div className="absolute left-0 bottom-full mb-3 w-72 p-4 bg-slate-800 border-slate-700 text-white text-sm rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                                                    <strong className="block text-teal-400 mb-1 text-xs tracking-wider uppercase">In simple terms:</strong>
-                                                    <span className="leading-relaxed block">{q.tooltip}</span>
-                                                    <div className="absolute left-8 top-full border-[6px] border-transparent border-t-slate-800"></div>
+                                                {/* Simple terms tooltip */}
+                                                <div className="group relative cursor-help">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400 group-hover:text-teal-500 transition-colors"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+                                                    <div className="absolute left-0 bottom-full mb-3 w-72 p-4 bg-slate-800 text-white text-sm rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                                                        <strong className="block text-teal-400 mb-1 text-xs tracking-wider uppercase">In other words:</strong>
+                                                        <span className="leading-relaxed block">{q.tooltip}</span>
+                                                        <div className="absolute left-4 top-full border-[6px] border-transparent border-t-slate-800"></div>
+                                                    </div>
+                                                </div>
+                                                {/* Elaborate tooltip */}
+                                                <div className="group relative cursor-help">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400 group-hover:text-violet-500 transition-colors"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                                                    <div className="absolute left-0 bottom-full mb-3 w-80 p-4 bg-slate-900 text-white text-sm rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                                                        <strong className="block text-violet-400 mb-1 text-xs tracking-wider uppercase">Technical term:</strong>
+                                                        <span className="leading-relaxed block text-slate-300">{q.elaborate}</span>
+                                                        <div className="absolute left-4 top-full border-[6px] border-transparent border-t-slate-900"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <p className="text-sm text-slate-500 leading-snug pr-0 md:pr-8">{q.desc}</p>

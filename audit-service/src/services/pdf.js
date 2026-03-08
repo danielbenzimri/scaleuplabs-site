@@ -12,16 +12,22 @@ import { buildReportHtml } from "./template.js";
 export async function generatePdf(params) {
     const html = buildReportHtml(params);
 
+    const isDev = process.env.NODE_ENV !== "production";
+    const executablePath = isDev
+        ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        : await chromium.executablePath();
+
     const browser = await puppeteer.launch({
-        args: chromium.args,
+        args: isDev ? [] : chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(),
-        headless: chromium.headless,
+        executablePath,
+        headless: isDev ? true : chromium.headless,
+        timeout: 60000,
     });
 
     try {
         const page = await browser.newPage();
-        await page.setContent(html, { waitUntil: "networkidle0" });
+        await page.setContent(html, { waitUntil: "load" });
 
         const pdfBuffer = await page.pdf({
             format: "A4",

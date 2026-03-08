@@ -48,7 +48,7 @@ const ServicesSection = () => {
       image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=400&fit=crop",
       title: "AI Automation & Workflows",
       description: "Streamline operations and reduce errors with intelligent, automated workflows.",
-      features: ["LLM-powered Automation", "Document Processing", "Decision Support Systems", "Operational Tools"]
+      features: ["LLM-powered Automation", "Document AI", "Decision Support Systems", "Operational Tools"]
     },
     {
       image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&h=400&fit=crop",
