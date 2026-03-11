@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 .env
 .env.local
+audit-service/deploy-cloudrun.sh
+.claude/
