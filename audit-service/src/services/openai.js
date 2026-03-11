@@ -29,18 +29,19 @@ Pillar Results:
 ${pillarLines}
 
 Generate an executive summary structured into exactly these 4 sections:
-1. "Overall Maturity & AI Readiness" — 1–2 sentence intro + 2–4 bullet points about the overall score and posture
-2. "Key Strengths" — 1 sentence intro + one bullet per strong pillar (score ≥ 65), each bullet naming the pillar and why it's an asset
-3. "Critical Gaps & Weaknesses" — 1 sentence intro + one bullet per weak pillar (score < 65), each bullet naming the pillar and what risk it creates
-4. "Strategic Recommendations" — 1 sentence intro + 3–5 prioritised, actionable bullet points to close the gaps
+1. "Where You Stand vs. The Market" — 1–2 sentence intro + 2–4 bullet points about the overall score and posture. Place them in competitive context based on their score (e.g., scores < 60 mean lagging in the bottom third; scores > 75 mean actively deploying). Frame the analysis around their position using strong directional language. Do NOT quote specific external percentages or industry reports.
+2. "Your Competitive Assets" — 1 sentence intro + one bullet per strong pillar (score ≥ 65). Frame each strength explicitly as a specific business advantage and economic leverage point, directly tied to their capability signals.
+3. "Where Revenue Is Being Left Behind" — 1 sentence intro + one bullet per weak pillar (score < 65). Frame gaps not as technical shortcomings, but as a financial cost, margin drag, or competitive vulnerability. Use strong directional language (e.g., "significant segment of operational cost", "high execution friction") rather than inventing unverified percentages. 
+4. "Your Strategic AI Activation Plan" — 1 sentence intro + 3–5 actionable, prioritized business and technical moves to close gaps and capture ROI. The final bullet MUST explicitly state: "Organizations at your maturity stage typically accelerate fastest with a structured execution roadmap. ScaleUp Labs works with teams like yours to design and execute this pathway."
 
 Rules:
-- Be precise, data-driven, and board-level professional
-- Reference actual scores in bullets (e.g. "Data Architecture Readiness: 40/100")
-- Keep bullets sharp: max 20 words each
-- Do NOT use vague filler language
+- Be precise, authoritative, and board-level professional.
+- Reference actual scores in bullets (e.g., "Data Architecture Readiness (40/100):").
+- Do NOT invent fake percentages or quote unverified statistics. Ground your analysis in their scores using directional urgency (e.g., "A score of 38/100 indicates infrastructure would likely fail under production AI workloads").
+- Keep bullets sharp: max 25-30 words each.
+- Do NOT use vague filler language.
 
-Also provide a concise 3–4 sentence paragraph for quick executive review.
+Also provide a concise 3–4 sentence paragraph for quick executive review summarizing the business opportunity and key risks.
 
 Respond with valid JSON only (no markdown, no code fences):
 {
@@ -55,7 +56,7 @@ Respond with valid JSON only (no markdown, no code fences):
         messages: [
             {
                 role: "system",
-                content: "You are a senior AI strategy consultant producing board-level diagnostic reports. Be precise, specific, and data-driven. Use the exact JSON schema requested.",
+                content: "You are a senior AI strategy consultant producing board-level diagnostic reports. Be precise, specific, and data-driven focusing on business outcomes and competitive urgency. Use the exact JSON schema requested.",
             },
             { role: "user", content: prompt },
         ],

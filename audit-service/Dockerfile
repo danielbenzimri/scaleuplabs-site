@@ -1,24 +1,25 @@
-FROM ghcr.io/puppeteer/puppeteer:latest
+FROM node:20-bullseye-slim
 
-# Switch to root to install and copy files
-USER root
+# Dependencies required by @sparticuz/chromium
+RUN apt-get update && apt-get install -y \
+    ca-certificates fonts-liberation \
+    libasound2 libatk-bridge2.0-0 libatk1.0-0 libc6 libcairo2 libcups2 \
+    libdbus-1-3 libexpat1 libfontconfig1 libgbm1 libgcc1 libglib2.0-0 \
+    libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libpangocairo-1.0-0 \
+    libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 \
+    libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 \
+    libxss1 libxtst6 lsb-release wget xdg-utils \
+    --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Install dependencies first (helps with caching)
-COPY package*.json ./
-RUN npm install
+RUN npm install -g npm@latest
 
-# Copy the rest of the app
+COPY package*.json ./
+RUN npm ci --omit=dev
+
 COPY . .
 
-# Environment variables
-ENV PORT=3002
-# Ensure Puppeteer knows to run without a sandbox in Docker
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
+EXPOSE 8080
 
-EXPOSE 3002
-
-# The default command to start the server
-CMD ["npm", "start"]
+CMD ["node", "server.js"]

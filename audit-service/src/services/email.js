@@ -1,41 +1,31 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-function createTransporter() {
-  return nodemailer.createTransport({
-    host: "smtp.zoho.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.ZOHO_EMAIL,
-      pass: process.env.ZOHO_PASSWORD,
-    },
-  });
+const resend = new Resend(process.env.RESEND_API_KEY);
+const isDev = process.env.NODE_ENV !== "production";
+const FROM = isDev
+  ? "onboarding@resend.dev"
+  : (process.env.SENDER_EMAIL || "ScaleUp Labs <info@scaleuplabs.dev>");
+
+async function send(payload) {
+  const { error } = await resend.emails.send(payload);
+  if (error) throw new Error(`[Resend] ${error.message}`);
 }
 
 /**
  * Send the audit report to the user (PDF attached) and notify the internal team.
- *
- * @param {{ name: string, email: string }} lead
- * @param {number}  totalScore
- * @param {Buffer}  pdfBuffer   - Raw PDF bytes, attached to the user email
- * @param {string}  concise     - One-paragraph executive summary
  */
 export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) {
-  const transporter = createTransporter();
-  const FROM = process.env.SENDER_EMAIL || `ScaleUp Labs <${process.env.ZOHO_EMAIL}>`;
-
-  // ── 1. Email to the user (with PDF attached) ───────────────────────────────
+  // ── 1. Email to the user ───────────────────────────────────────────────────
   if (!lead?.email) {
     console.warn("[Email] No lead email — skipping user report email.");
   } else {
-    await transporter.sendMail({
+    await send({
       from: FROM,
       to: lead.email,
       subject: `Your AI Readiness Audit Report — Score: ${totalScore}/100`,
       attachments: pdfBuffer ? [{
         filename: "ScaleUpLabs-AI-Readiness-Report.pdf",
         content: pdfBuffer,
-        contentType: "application/pdf",
       }] : [],
       html: `<!DOCTYPE html>
 <html lang="en">
@@ -50,7 +40,7 @@ export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) 
       <p style="color:#334155;font-size:15px;margin:0 0 6px">Hi <strong>${lead.name}</strong>,</p>
       <p style="color:#64748b;font-size:14px;line-height:1.6;margin:0 0 24px">
         Your AI Integration Readiness &amp; Leverage Audit is complete.
-        Your full report is attached to this email as a PDF.
+        ${pdfBuffer ? "Your full report is attached to this email as a PDF." : ""}
       </p>
       <div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:20px 28px;margin-bottom:24px;">
         <span style="font-size:48px;font-weight:900;color:#0f172a;line-height:1;">${totalScore}</span>
@@ -58,7 +48,7 @@ export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) 
       </div>
       <h2 style="font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin:0 0 14px;">Quick Executive Read</h2>
       <p style="color:#334155;font-size:14px;line-height:1.7;margin:0 0 28px;">${concise}</p>
-      <p style="color:#64748b;font-size:13px;margin:0;">📎 Your full PDF report is attached to this email.</p>
+      ${pdfBuffer ? `<p style="color:#64748b;font-size:13px;margin:0;">📎 Your full PDF report is attached to this email.</p>` : ""}
     </div>
     <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 40px;">
       <span style="font-size:11px;color:#14b8a6;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">ScaleUp Labs</span>
@@ -68,11 +58,12 @@ export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) 
 </body>
 </html>`,
     });
+    console.log(`[Email] ✅ Report sent to ${lead.email}`);
   }
 
   // ── 2. Internal lead notification ──────────────────────────────────────────
   if (process.env.INTERNAL_NOTIFY_EMAIL) {
-    await transporter.sendMail({
+    await send({
       from: FROM,
       to: process.env.INTERNAL_NOTIFY_EMAIL,
       subject: `🔔 New Audit Submission — ${lead.name} (${totalScore}/100)`,
@@ -87,5 +78,6 @@ export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) 
   <b>Score:</b>     ${totalScore}/100
 </div>`,
     });
+    console.log(`[Email] ✅ Internal notification sent to ${process.env.INTERNAL_NOTIFY_EMAIL}`);
   }
 }

@@ -1,8 +1,10 @@
-import puppeteer from "puppeteer";
+import chromium from "@sparticuz/chromium";
+import puppeteer from "puppeteer-core";
 import { buildReportHtml } from "./template.js";
 
 /**
  * Render the audit report as a PDF buffer.
+ * Uses @sparticuz/chromium — a Chromium build optimised for serverless/Cloud Run.
  *
  * @param {object} params - { lead, totalScore, pillarScores, summary, submissionDate }
  * @returns {Buffer} Raw PDF bytes
@@ -10,14 +12,22 @@ import { buildReportHtml } from "./template.js";
 export async function generatePdf(params) {
     const html = buildReportHtml(params);
 
+    const isMac = process.platform === "darwin";
+    const executablePath = isMac
+        ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        : await chromium.executablePath();
+
     const browser = await puppeteer.launch({
-        headless: "new",
-        args: ["--no-sandbox", "--disable-setuid-sandbox"], // required for deployment envs
+        args: isMac ? [] : chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath,
+        headless: true,
+        timeout: 60000,
     });
 
     try {
         const page = await browser.newPage();
-        await page.setContent(html, { waitUntil: "networkidle0" });
+        await page.setContent(html, { waitUntil: "load" });
 
         const pdfBuffer = await page.pdf({
             format: "A4",
@@ -26,7 +36,7 @@ export async function generatePdf(params) {
             margin: { top: "0mm", right: "0mm", bottom: "0mm", left: "0mm" },
         });
 
-        return pdfBuffer;
+        return Buffer.from(pdfBuffer);
     } finally {
         await browser.close();
     }
