@@ -12,16 +12,16 @@ import { buildReportHtml } from "./template.js";
 export async function generatePdf(params) {
     const html = buildReportHtml(params);
 
-    const isDev = process.env.NODE_ENV !== "production";
-    const executablePath = isDev
+    const isMac = process.platform === "darwin";
+    const executablePath = isMac
         ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
         : await chromium.executablePath();
 
     const browser = await puppeteer.launch({
-        args: isDev ? [] : chromium.args,
+        args: isMac ? [] : chromium.args,
         defaultViewport: chromium.defaultViewport,
         executablePath,
-        headless: isDev ? true : chromium.headless,
+        headless: true,
         timeout: 60000,
     });
 
@@ -36,7 +36,7 @@ export async function generatePdf(params) {
             margin: { top: "0mm", right: "0mm", bottom: "0mm", left: "0mm" },
         });
 
-        return pdfBuffer;
+        return Buffer.from(pdfBuffer);
     } finally {
         await browser.close();
     }

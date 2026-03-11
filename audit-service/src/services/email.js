@@ -40,7 +40,7 @@ export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) 
       <p style="color:#334155;font-size:15px;margin:0 0 6px">Hi <strong>${lead.name}</strong>,</p>
       <p style="color:#64748b;font-size:14px;line-height:1.6;margin:0 0 24px">
         Your AI Integration Readiness &amp; Leverage Audit is complete.
-        Your full report is attached to this email as a PDF.
+        ${pdfBuffer ? "Your full report is attached to this email as a PDF." : ""}
       </p>
       <div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:20px 28px;margin-bottom:24px;">
         <span style="font-size:48px;font-weight:900;color:#0f172a;line-height:1;">${totalScore}</span>
@@ -48,7 +48,7 @@ export async function sendReportEmail({ lead, totalScore, pdfBuffer, concise }) 
       </div>
       <h2 style="font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#0f172a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin:0 0 14px;">Quick Executive Read</h2>
       <p style="color:#334155;font-size:14px;line-height:1.7;margin:0 0 28px;">${concise}</p>
-      <p style="color:#64748b;font-size:13px;margin:0;">📎 Your full PDF report is attached to this email.</p>
+      ${pdfBuffer ? `<p style="color:#64748b;font-size:13px;margin:0;">📎 Your full PDF report is attached to this email.</p>` : ""}
     </div>
     <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 40px;">
       <span style="font-size:11px;color:#14b8a6;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">ScaleUp Labs</span>

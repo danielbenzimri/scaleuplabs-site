@@ -782,8 +782,8 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                         <p className="text-slate-400 mb-8 max-w-2xl mx-auto text-lg">
                             We help technology-driven companies identify architectural gaps and successfully deploy production-grade AI infrastructure.
                         </p>
-                        <a href="https://scaleuplabs.dev/#contact" target="_blank" rel="noreferrer" className="inline-block bg-teal-600 hover:bg-teal-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-teal-900/40 transition-all hover:-translate-y-1">
-                            Book a Capability Mapping Session
+                        <a href="https://www.cal.eu/scaleuplabs/30min?user=scaleuplabs" target="_blank" rel="noreferrer" className="inline-block bg-teal-600 hover:bg-teal-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-teal-900/40 transition-all hover:-translate-y-1">
+                            Book a Free Consultation
                         </a>
                     </div>
                 </div>
