@@ -311,16 +311,23 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
 
             <div className="max-w-3xl mx-auto px-6 pt-12">
                 <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-12 text-sm text-slate-600">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 gap-x-8 items-center">
+                    <div className="flex flex-col gap-3">
                         <div className="font-bold text-slate-800 uppercase tracking-widest text-xs">
                             Maturity Scale:
                         </div>
-                        {MATURITY_LEVELS.map((level) => (
-                            <div key={level.value} className="flex items-center gap-3">
-                                <span className="w-7 h-7 rounded-md bg-slate-50 flex items-center justify-center font-black text-slate-600 border border-slate-200/80 text-xs shadow-sm shadow-slate-200/50">{level.value}</span>
-                                <span className="font-semibold text-slate-600">{level.label}</span>
-                            </div>
-                        ))}
+                        <div className="flex items-center gap-2">
+                            {MATURITY_LEVELS.map((level, i) => (
+                                <div key={level.value} className="flex items-center gap-2">
+                                    <div className="flex flex-col items-center gap-1">
+                                        <span className="w-7 h-7 rounded-md bg-slate-50 flex items-center justify-center font-black text-slate-600 border border-slate-200/80 text-xs shadow-sm shadow-slate-200/50">{level.value}</span>
+                                        <span className="text-xs text-slate-500 whitespace-nowrap">{level.label}</span>
+                                    </div>
+                                    {i < MATURITY_LEVELS.length - 1 && (
+                                        <span className="text-slate-300 mb-4">→</span>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
@@ -562,16 +569,12 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                             Official Audit Result
                         </div>
                         <h1 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">AI Integration Readiness & Leverage</h1>
-                        {leadInfo?.name && (
-                            <p className="text-slate-400 text-lg">Prepared for <span className="capitalize">{leadInfo.name}</span></p>
-                        )}
                     </div>
 
                     <div className="bg-slate-800 border border-slate-700 p-8 rounded-3xl text-center w-full md:w-auto md:min-w-[280px]">
                         <div className="text-6xl md:text-7xl font-black text-white leading-none mb-2">
-                            {totalScore}
+                            {totalScore}<span className="text-3xl font-bold text-slate-400">%</span>
                         </div>
-                        <div className="text-sm font-bold tracking-widest text-slate-400 uppercase mb-4">/ 100</div>
                         <div className={`text-lg font-bold ${tier.color}`}>
                             {tier.label}
                         </div>
@@ -608,10 +611,7 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                                 <div className="w-2 h-2 rounded-full bg-teal-500"></div>
                                                 <span className="text-sm font-bold text-slate-700 uppercase tracking-wider">Integration Readiness</span>
                                             </div>
-                                            <div className={`flex flex-col items-end px-3 py-1.5 rounded-lg border ${isGroupStrong ? "bg-cyan-50 border-cyan-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-teal-50 border-teal-200"}`}>
-                                                <span className={`text-base font-black leading-none ${isGroupStrong ? "text-cyan-700" : isGroupWeak ? "text-red-700" : "text-teal-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
-                                                <span className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${isGroupStrong ? "text-cyan-500" : isGroupWeak ? "text-red-400" : "text-teal-400"}`}>Group Score</span>
-                                            </div>
+                                            <span className={`text-xl font-black tabular-nums px-3 py-1 rounded-lg border-2 ${isGroupStrong ? "text-cyan-600 border-cyan-300 bg-cyan-50" : isGroupWeak ? "text-red-500 border-red-300 bg-red-50" : "text-teal-600 border-teal-300 bg-teal-50"}`}>{groupAvg}%</span>
                                         </div>
                                         <div className="space-y-8">
                                             {group.map(({ pillar, scoreKey }) => {
@@ -622,7 +622,7 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                                     <div key={pillar.id}>
                                                         <div className="flex justify-between items-end mb-2">
                                                             <span className="font-bold text-slate-800 text-sm md:text-base">{pillar.title}</span>
-                                                            <span className={`font-bold ${isStrong ? "text-cyan-600" : isWarning ? "text-red-500" : "text-teal-600"}`}>{score}/100</span>
+                                                            <span className={`font-bold ${isStrong ? "text-cyan-600" : isWarning ? "text-red-500" : "text-teal-600"}`}>{score}%</span>
                                                         </div>
                                                         <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden mb-3">
                                                             <div className={`h-full rounded-full transition-all duration-1000 ${isStrong ? "bg-cyan-500" : isWarning ? "bg-red-500" : "bg-teal-500"}`} style={{ width: `${score}%` }}></div>
@@ -658,10 +658,7 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                                 <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
                                                 <span className="text-sm font-bold text-slate-700 uppercase tracking-wider">Leverage Audit</span>
                                             </div>
-                                            <div className={`flex flex-col items-end px-3 py-1.5 rounded-lg border ${isGroupStrong ? "bg-cyan-50 border-cyan-200" : isGroupWeak ? "bg-red-50 border-red-200" : "bg-teal-50 border-teal-200"}`}>
-                                                <span className={`text-base font-black leading-none ${isGroupStrong ? "text-cyan-700" : isGroupWeak ? "text-red-700" : "text-teal-700"}`}>{groupAvg}<span className="text-sm font-bold">/100</span></span>
-                                                <span className={`text-[10px] font-bold uppercase tracking-widest mt-0.5 ${isGroupStrong ? "text-cyan-500" : isGroupWeak ? "text-red-400" : "text-teal-400"}`}>Group Score</span>
-                                            </div>
+                                            <span className={`text-xl font-black tabular-nums px-3 py-1 rounded-lg border-2 ${isGroupStrong ? "text-cyan-600 border-cyan-300 bg-cyan-50" : isGroupWeak ? "text-red-500 border-red-300 bg-red-50" : "text-teal-600 border-teal-300 bg-teal-50"}`}>{groupAvg}%</span>
                                         </div>
                                         <div className="space-y-8">
                                             {group.map(({ pillar, scoreKey }) => {
@@ -672,7 +669,7 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                                     <div key={pillar.id}>
                                                         <div className="flex justify-between items-end mb-2">
                                                             <span className="font-bold text-slate-800 text-sm md:text-base">{pillar.title}</span>
-                                                            <span className={`font-bold ${isStrong ? "text-cyan-600" : isWarning ? "text-red-500" : "text-teal-600"}`}>{score}/100</span>
+                                                            <span className={`font-bold ${isStrong ? "text-cyan-600" : isWarning ? "text-red-500" : "text-teal-600"}`}>{score}%</span>
                                                         </div>
                                                         <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden mb-3">
                                                             <div className={`h-full rounded-full transition-all duration-1000 ${isStrong ? "bg-cyan-500" : isWarning ? "bg-red-500" : "bg-teal-500"}`} style={{ width: `${score}%` }}></div>
@@ -743,7 +740,18 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                 {/* Concise quick-read */}
                                 <div className="bg-teal-50/60 border border-teal-100 p-6 rounded-2xl">
                                     <p className="text-[10px] font-bold uppercase tracking-widest text-teal-500 mb-3">Quick Executive Read</p>
-                                    <p className="text-slate-700 leading-relaxed font-medium">{llmSummary.concise}</p>
+                                    <p className="text-lg font-extrabold text-slate-800 mb-1">
+                                        Are You Really Ready to Leverage AI?{" "}
+                                        <span className={
+                                            totalScore >= 80 ? "text-cyan-500" :
+                                            totalScore >= 60 ? "text-teal-500" :
+                                            totalScore >= 40 ? "text-amber-500" :
+                                            "text-red-500"
+                                        }>
+                                            {totalScore >= 80 ? "Yes." : totalScore >= 60 ? "Almost." : totalScore >= 40 ? "Not yet." : "No."}
+                                        </span>
+                                    </p>
+                                    <p className="text-slate-600 leading-relaxed mt-3">{llmSummary.concise}</p>
                                 </div>
 
                                 {/* Structured sections */}
