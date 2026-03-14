@@ -315,8 +315,7 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
                         <div className="font-bold text-slate-800 uppercase tracking-widest text-xs">
                             Maturity Scale:
                         </div>
-                        <div className="overflow-x-auto pb-1">
-                        <div className="flex items-center gap-2 min-w-max">
+                        <div className="flex flex-wrap gap-x-2 gap-y-3">
                             {MATURITY_LEVELS.map((level, i) => (
                                 <div key={level.value} className="flex items-center gap-2">
                                     <div className="flex flex-col items-center gap-1">
@@ -330,7 +329,6 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
                             ))}
                         </div>
                     </div>
-                </div>
                 </div>
 
                 {PILLARS.map((pillar) => (
