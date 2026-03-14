@@ -31,12 +31,12 @@ const Hero = () => {
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          Build Your AI Product
+          Build Your AI Product<br className="sm:hidden" />
           <span className="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent"> the Right Way.</span>
         </h1>
 
-        <p className="text-base sm:text-xl md:text-2xl text-slate-400 mb-12 max-w-4xl mx-auto leading-relaxed">
-          We design and implement scalable <span className="font-semibold text-slate-300">Data Infrastructure</span>, pipelines, and <span className="font-semibold text-slate-300">AI Systems</span> - from solid foundations to <span className="font-semibold text-slate-300">LLM-Powered Features</span> - without overengineering or wasted budget.
+        <p className="text-base sm:text-xl md:text-2xl text-slate-400 mb-12 max-w-4xl mx-auto leading-relaxed px-2">
+          We design and implement scalable <span className="font-semibold text-slate-300">Data Infrastructure</span>, pipelines, and <span className="font-semibold text-slate-300">AI Systems</span> — from solid foundations to <span className="font-semibold text-slate-300">LLM-Powered Features</span> — without overengineering or wasted budget.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -55,7 +55,7 @@ const Hero = () => {
           </button>
         </div>
 
-        <div className="mt-16 text-base text-slate-400 tracking-wide">
+        <div className="mt-16 text-sm text-slate-400 tracking-wide px-4">
           <p>Senior engineers only · No outsourcing · Direct founder access</p>
         </div>
 
