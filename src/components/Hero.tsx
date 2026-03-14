@@ -23,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-tech-modern-section">
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-tech-modern-section overflow-x-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center px-5 py-2.5 bg-slate-800/80 text-teal-300 border border-teal-500/30 rounded-full text-base font-medium mb-8 tracking-wide shadow-[0_0_15px_rgba(20,184,166,0.1)]">
           <Hexagon className="w-5 h-5 mr-2" />
