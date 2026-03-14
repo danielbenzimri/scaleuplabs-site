@@ -315,7 +315,8 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
                         <div className="font-bold text-slate-800 uppercase tracking-widest text-xs">
                             Maturity Scale:
                         </div>
-                        <div className="flex flex-wrap gap-x-2 gap-y-3">
+                        {/* Desktop: horizontal with arrows */}
+                        <div className="hidden sm:flex items-center gap-2">
                             {MATURITY_LEVELS.map((level, i) => (
                                 <div key={level.value} className="flex items-center gap-2">
                                     <div className="flex flex-col items-center gap-1">
@@ -325,6 +326,15 @@ const FormPage = ({ formData, setFormData, onSubmit }: { formData: FormData, set
                                     {i < MATURITY_LEVELS.length - 1 && (
                                         <span className="text-slate-300 mb-4">→</span>
                                     )}
+                                </div>
+                            ))}
+                        </div>
+                        {/* Mobile: compact grid */}
+                        <div className="grid grid-cols-5 gap-1 sm:hidden">
+                            {MATURITY_LEVELS.map((level) => (
+                                <div key={level.value} className="flex flex-col items-center gap-1 text-center">
+                                    <span className="w-7 h-7 rounded-md bg-slate-50 flex items-center justify-center font-black text-slate-600 border border-slate-200/80 text-xs shadow-sm shadow-slate-200/50">{level.value}</span>
+                                    <span className="text-[10px] text-slate-500 leading-tight">{level.label}</span>
                                 </div>
                             ))}
                         </div>
