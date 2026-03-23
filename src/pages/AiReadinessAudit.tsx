@@ -775,18 +775,18 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
 
                                 {/* Structured sections */}
                                 <div>
-                                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-5">Full Executive Summary</p>
-                                    <div className="space-y-6">
+                                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Full Executive Summary</p>
+                                    <div className="space-y-8">
                                         {llmSummary.sections.map((section, i) => (
-                                            <div key={i} className="border-l-2 border-slate-200 pl-5">
-                                                <h4 className="text-base font-extrabold text-slate-900 mb-1">{section.heading}</h4>
+                                            <div key={i} className="border-l-4 border-teal-400 pl-5 py-1">
+                                                <h4 className="text-base font-extrabold text-slate-900 mb-2">{section.heading}</h4>
                                                 {section.intro && (
-                                                    <p className="text-sm text-slate-500 mb-3 leading-relaxed">{section.intro}</p>
+                                                    <p className="text-sm text-slate-500 mb-4 leading-relaxed">{section.intro}</p>
                                                 )}
-                                                <ul className="space-y-2">
+                                                <ul className="space-y-3">
                                                     {section.bullets.map((bullet, j) => (
-                                                        <li key={j} className="flex items-start gap-2.5 text-sm text-slate-700">
-                                                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
+                                                        <li key={j} className="flex items-start gap-3 text-sm text-slate-700 leading-relaxed">
+                                                            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
                                                             {bullet}
                                                         </li>
                                                     ))}
