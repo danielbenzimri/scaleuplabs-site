@@ -779,7 +779,7 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                     <div className="space-y-6">
                                         {llmSummary.sections.map((section, i) => (
                                             <div key={i} className="border-l-2 border-slate-200 pl-5">
-                                                <h4 className="text-sm font-bold text-slate-800 mb-1">{section.heading}</h4>
+                                                <h4 className="text-base font-extrabold text-slate-900 mb-1">{section.heading}</h4>
                                                 {section.intro && (
                                                     <p className="text-sm text-slate-500 mb-3 leading-relaxed">{section.intro}</p>
                                                 )}
