@@ -18,12 +18,12 @@ const PILLAR_META = [
  */
 export async function generateSummary({ pillarScores, totalScore }) {
     const pillarLines = PILLAR_META
-        .map((p) => `${p.name}: ${pillarScores[p.key]}/100 – ${p.explanation}`)
+        .map((p) => `${p.name}: ${pillarScores[p.key]}% – ${p.explanation}`)
         .join("\n");
 
-    const prompt = `I have the results of an AI Integration Readiness & Leverage Audit™. Each pillar is scored from 0–100.
+    const prompt = `I have the results of an AI Integration Readiness & Leverage Audit™. Each pillar is scored from 0–100%.
 
-Overall Score: ${totalScore}/100
+Overall Score: ${totalScore}%
 
 Pillar Results:
 ${pillarLines}
@@ -36,8 +36,8 @@ Generate an executive summary structured into exactly these 4 sections:
 
 Rules:
 - Be precise, authoritative, and board-level professional.
-- Reference actual scores in bullets (e.g., "Data Architecture Readiness (40/100):").
-- Do NOT invent fake percentages or quote unverified statistics. Ground your analysis in their scores using directional urgency (e.g., "A score of 38/100 indicates infrastructure would likely fail under production AI workloads").
+- Reference actual scores in bullets using percentage format (e.g., "Data Architecture Readiness (40%):").
+- Do NOT invent fake percentages or quote unverified statistics. Ground your analysis in their scores using directional urgency (e.g., "A score of 38% indicates infrastructure would likely fail under production AI workloads").
 - Keep bullets sharp: max 25-30 words each.
 - Do NOT use vague filler language.
 
