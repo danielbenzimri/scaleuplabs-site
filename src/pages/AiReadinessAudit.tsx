@@ -739,9 +739,20 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                         )}
 
                         {llmError && (
-                            <div className="bg-red-50 border border-red-200 rounded-xl p-5 text-sm text-red-700">
-                                <strong className="block mb-1">Could not generate AI summary.</strong>
-                                {llmError}
+                            <div className="flex flex-col gap-6">
+                                <div className="bg-teal-50/60 border border-teal-100 p-6 rounded-2xl">
+                                    <p className="text-xs font-bold uppercase tracking-widest text-teal-500 mb-3">Quick Executive Read</p>
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <span className={`text-4xl font-black tabular-nums ${totalScore >= 80 ? "text-cyan-500" : totalScore >= 60 ? "text-teal-500" : totalScore >= 40 ? "text-amber-500" : "text-red-500"}`}>{totalScore}%</span>
+                                        <p className="text-lg font-extrabold text-slate-800">
+                                            Are You Really Ready to Leverage AI?{" "}
+                                            <span className={totalScore >= 80 ? "text-cyan-500" : totalScore >= 60 ? "text-teal-500" : totalScore >= 40 ? "text-amber-500" : "text-red-500"}>
+                                                {totalScore >= 80 ? "Yes." : totalScore >= 60 ? "Almost." : totalScore >= 40 ? "Not yet." : "No."}
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <p className="text-slate-600 leading-relaxed">{getExecutiveSummary(totalScore)}</p>
+                                </div>
                             </div>
                         )}
 
@@ -749,24 +760,22 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                             <div className="flex flex-col gap-6">
                                 {/* Concise quick-read */}
                                 <div className="bg-teal-50/60 border border-teal-100 p-6 rounded-2xl">
-                                    <p className="text-[10px] font-bold uppercase tracking-widest text-teal-500 mb-3">Quick Executive Read</p>
-                                    <p className="text-lg font-extrabold text-slate-800 mb-1">
-                                        Are You Really Ready to Leverage AI?{" "}
-                                        <span className={
-                                            totalScore >= 80 ? "text-cyan-500" :
-                                            totalScore >= 60 ? "text-teal-500" :
-                                            totalScore >= 40 ? "text-amber-500" :
-                                            "text-red-500"
-                                        }>
-                                            {totalScore >= 80 ? "Yes." : totalScore >= 60 ? "Almost." : totalScore >= 40 ? "Not yet." : "No."}
-                                        </span>
-                                    </p>
+                                    <p className="text-xs font-bold uppercase tracking-widest text-teal-500 mb-3">Quick Executive Read</p>
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <span className={`text-4xl font-black tabular-nums ${totalScore >= 80 ? "text-cyan-500" : totalScore >= 60 ? "text-teal-500" : totalScore >= 40 ? "text-amber-500" : "text-red-500"}`}>{totalScore}%</span>
+                                        <p className="text-lg font-extrabold text-slate-800">
+                                            Are You Really Ready to Leverage AI?{" "}
+                                            <span className={totalScore >= 80 ? "text-cyan-500" : totalScore >= 60 ? "text-teal-500" : totalScore >= 40 ? "text-amber-500" : "text-red-500"}>
+                                                {totalScore >= 80 ? "Yes." : totalScore >= 60 ? "Almost." : totalScore >= 40 ? "Not yet." : "No."}
+                                            </span>
+                                        </p>
+                                    </div>
                                     <p className="text-slate-600 leading-relaxed mt-3">{llmSummary.concise}</p>
                                 </div>
 
                                 {/* Structured sections */}
                                 <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-5">Full Executive Summary</p>
+                                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-5">Full Executive Summary</p>
                                     <div className="space-y-6">
                                         {llmSummary.sections.map((section, i) => (
                                             <div key={i} className="border-l-2 border-slate-200 pl-5">
