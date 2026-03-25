@@ -781,7 +781,7 @@ const ResultsPage = ({ formData, leadInfo }: { formData: FormData, leadInfo: any
                                             <div key={i} className="border-l-4 border-teal-400 pl-5 py-1">
                                                 <h4 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">{section.heading}</h4>
                                                 <ul className="space-y-3">
-                                                    {section.bullets.slice(0, 2).map((bullet, j) => (
+                                                    {section.bullets.slice(0, i === 3 ? 5 : 2).map((bullet, j) => (
                                                         <li key={j} className="flex items-start gap-3 text-sm text-slate-700 leading-relaxed">
                                                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
                                                             {bullet}
